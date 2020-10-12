@@ -4,7 +4,7 @@ import RecResults from '../Components/RecResults'
 
 class WineRec extends Component {
     renderWines = (wines) => {
-        return wines.map(wine => <RecResults key={wine.id} wine={wine} postWine={this.props.postWine} postUserWine={this.props.postUserWine} />)
+        return wines.map(wine => <RecResults key={wine.id} wine={wine} postWine={this.props.postWine} />)
     }
     render() {
         return (

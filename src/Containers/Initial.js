@@ -12,8 +12,9 @@ const usersAPI = 'http://localhost:3000/users'
 const postWines = 'http://localhost:3000/wines'
 const API_KEY = process.env.REACT_APP_SPOON_API_KEY;
 // const postUserWines = 'http://localhost:3000/users_wines'
-const myHeaders = {"Content-Type": "application/json", "Accepts": "application/json"}
+const myHeaders = { "Content-Type": "application/json", "Accepts": "application/json" }
 const wineRecAPI = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/recommendation?maxPrice=50&minRating=0.7&number=10&wine='
+const winePairAPI = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/pairing?maxPrice=50&food='
 
 class Initial extends Component {
     constructor() {
@@ -28,8 +29,10 @@ class Initial extends Component {
             isLoggedIn,
             users: [],
             currentUser: {},
-            recSearchTxt: '', 
-            recWines: []
+            recSearchTxt: '',
+            recWines: [],
+            winePairing: {},
+            foodPairing: {}
         }
     }
 
@@ -38,7 +41,7 @@ class Initial extends Component {
     }
 
     getUsers = () => {
-        return fetch(usersAPI).then(res => res.json()).then(data => this.setState({users: data}))
+        return fetch(usersAPI).then(res => res.json()).then(data => this.setState({ users: data }))
     }
 
     postUser = (token) => {
@@ -79,7 +82,22 @@ class Initial extends Component {
             }
         })
             .then(res => res.json())
-            .then (data => this.setState({recWines: data['recommendedWines']}))
+            .then(data => this.setState({ recWines: data['recommendedWines'] }))
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    getWinePair = (query) => {
+        return fetch(winePairAPI + query, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+                "x-rapidapi-key": API_KEY
+            }
+        })
+            .then(res => res.json())
+            .then(data => this.setState({ winePairing: data }))
             .catch(err => {
                 console.log(err);
             });
@@ -92,8 +110,8 @@ class Initial extends Component {
             headers: myHeaders,
             body: JSON.stringify(wine)
         })
-        .then(res => res.json())
-        .then(data => console.log(data))
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
 
     // postUserWine = (wine) => {
@@ -111,14 +129,14 @@ class Initial extends Component {
 
 
     renderLoginOrHome = () => {
-        console.log(API_KEY)
+        // console.log(API_KEY)
         if (!this.state.isLoggedIn) {
             return (
                 <div className="App">
-                    <Login 
-                    postUser={this.postUser} 
-                    setCurrentUser={this.setCurrentUser} 
-                    users={this.state.users}
+                    <Login
+                        postUser={this.postUser}
+                        setCurrentUser={this.setCurrentUser}
+                        users={this.state.users}
                     />
                     <Logout setLogout={this.setLogout} />
                     {/* <a
@@ -132,15 +150,21 @@ class Initial extends Component {
         } else if (this.state.isLoggedIn) {
             return <Router>
                 <NavBar />
-                <Route exact path="/recommendations" 
-                component={() => <WineRec 
-                getWineRec={this.getWineRec} 
-                wines={this.state.recWines}
-                postWine={this.postWine}
-                postUserWine={this.postUserWine}
-                />} />
-                <Route exact path="/wine_pairing" component={() => <WinePair />} />
-                <Route exact path="/food_pairing" component={() => <FoodPair />} />
+                <Route exact path="/recommendations"
+                    component={() => <WineRec
+                        getWineRec={this.getWineRec}
+                        wines={this.state.recWines}
+                        postWine={this.postWine}
+                    />} />
+                <Route exact path="/wine_pairing"
+                    component={() => <WinePair
+                        getWinePair={this.getWinePair}
+                        winePairing={this.state.winePairing}
+                        postWine={this.postWine}
+                    />} />
+                <Route exact path="/food_pairing"
+                    component={() => <FoodPair
+                    />} />
                 <Redirect to='/home' />
                 <Route exact path="/home"
                     component={() => <Home currentUser={this.state.currentUser} setLogout={this.setLogout} />}
