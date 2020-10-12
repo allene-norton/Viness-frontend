@@ -15,6 +15,7 @@ const API_KEY = process.env.REACT_APP_SPOON_API_KEY;
 const myHeaders = { "Content-Type": "application/json", "Accepts": "application/json" }
 const wineRecAPI = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/recommendation?maxPrice=50&minRating=0.7&number=10&wine='
 const winePairAPI = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/pairing?maxPrice=50&food='
+const foodPairAPI = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/dishes?wine="
 
 class Initial extends Component {
     constructor() {
@@ -103,6 +104,23 @@ class Initial extends Component {
             });
     }
 
+    getFoodPair = (query) => {
+        return fetch(foodPairAPI + query, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+                "x-rapidapi-key": API_KEY
+            }
+        })
+            .then(res => res.json())
+            .then(data => this.setState({ foodPairing: data }))
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    
+
     postWine = (wine) => {
         console.log(wine)
         return fetch(postWines, {
@@ -113,20 +131,6 @@ class Initial extends Component {
             .then(res => res.json())
             .then(data => console.log(data))
     }
-
-    // postUserWine = (wine) => {
-    //     return fetch(postUserWines, {
-    //         method: 'POST',
-    //         headers: myHeaders,
-    //         body: JSON.stringify({
-    //             user_id: this.state.currentUser.googleId,
-    //             wine_id: wine.id
-    //         })
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => console.log(data))
-    // }
-
 
     renderLoginOrHome = () => {
         // console.log(API_KEY)
@@ -139,12 +143,6 @@ class Initial extends Component {
                         users={this.state.users}
                     />
                     <Logout setLogout={this.setLogout} />
-                    {/* <a
-                        className="App-link"
-                        href="http://localhost:3000/users/auth/google_oauth2"
-                    >
-                        Log in with Google
-                </a> */}
                 </div>
             )
         } else if (this.state.isLoggedIn) {
@@ -164,6 +162,8 @@ class Initial extends Component {
                     />} />
                 <Route exact path="/food_pairing"
                     component={() => <FoodPair
+                    getFoodPair={this.getFoodPair}
+                    foodPairing={this.state.foodPairing}
                     />} />
                 <Redirect to='/home' />
                 <Route exact path="/home"
