@@ -31,7 +31,7 @@ class Initial extends Component {
             users: [],
             currentUser: {},
             recSearchTxt: '',
-            recWines: [],
+            recWines: {},
             winePairing: {},
             foodPairing: {}
         }
@@ -83,7 +83,7 @@ class Initial extends Component {
             }
         })
             .then(res => res.json())
-            .then(data => this.setState({ recWines: data['recommendedWines'] }))
+            .then(data => this.setState({ recWines: data }))
             .catch(err => {
                 console.log(err);
             });

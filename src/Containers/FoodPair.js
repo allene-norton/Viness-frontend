@@ -23,6 +23,7 @@ renderText = (text) => {
     else {return undefined}
 }
   render() {
+    console.log(this.pairObj)
     return (
       <div className="food-pair-page">
         <h2>Food Pair Page</h2>
