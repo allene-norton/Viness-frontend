@@ -9,9 +9,11 @@ class Logout extends Component {
     // }
     onSuccess = () => {
         alert('Logout made sucessfully!')
+        sessionStorage.setItem('isLoggedIn', false)
+        sessionStorage.setItem('user', null)
         // this.props.setLogout()
         // this.setState({loggedOut: true})
-        localStorage.clear()
+        // sessionStorage.clear()
         window.location.href = '/'
     }
 

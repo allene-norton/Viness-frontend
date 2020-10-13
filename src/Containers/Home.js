@@ -10,7 +10,7 @@ class Home extends Component {
   getSavedWines = () => {
     let allWines = this.props.allWines
     let allUserWines = this.props.userWines
-    let userId = JSON.parse(localStorage.getItem('user')).user_id
+    let userId = JSON.parse(sessionStorage.getItem('user')).user_id
     let userWines = allUserWines.filter(wine => wine.user_id === userId)
     let wineIds = userWines.map(wine => wine.wine_id)
     let userWineData = []
@@ -40,7 +40,7 @@ class Home extends Component {
     return this.state.saved.map(wine => <SavedWines key={wine.id} wine={wine} />)
   }
   render() {
-    let user = JSON.parse(localStorage.getItem('user'))
+    let user = JSON.parse(sessionStorage.getItem('user'))
     return (
       <div className="home">
         <h2>Viness Home Page</h2>

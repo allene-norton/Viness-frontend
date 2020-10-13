@@ -32,7 +32,7 @@ class Initial extends Component {
         // }
 
         this.state = {
-            isLoggedIn,
+            isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
             users: [],
             allWines: [],
             userWines: [],
@@ -75,19 +75,21 @@ class Initial extends Component {
     }
 
     setCurrentUser = (obj) => {
-        localStorage.setItem('isLoggedIn', true)
-        localStorage.setItem('user', JSON.stringify(obj))
+        sessionStorage.setItem('isLoggedIn', true)
+        sessionStorage.setItem('user', JSON.stringify(obj))
         this.setState({
-            isLoggedIn: true,
-            currentUser: JSON.parse(localStorage.getItem('user'))
+            isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
+            currentUser: JSON.parse(sessionStorage.getItem('user'))
         })
         console.log(this.state.isLoggedIn, this.state.currentUser)
     }
 
     setLogout = () => {
+        sessionStorage.setItem('isLoggedIn', false)
+        sessionStorage.setItem('user', null)
         this.setState({
-            isLoggedIn: false,
-            currentUser: null
+            isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
+            currentUser: JSON.parse(sessionStorage.getItem('user'))
         })
     }
 
