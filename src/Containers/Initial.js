@@ -9,10 +9,15 @@ import Login from '../Components/Login'
 import Logout from '../Components/Logout'
 
 const usersAPI = 'http://localhost:3000/users'
+const winesAPI = 'http://localhost:3000/wines'
+const usersWinesAPI = 'http://localhost:3000/users_wines'
+
 const postWines = 'http://localhost:3000/wines'
+
 const API_KEY = process.env.REACT_APP_SPOON_API_KEY;
-// const postUserWines = 'http://localhost:3000/users_wines'
+
 const myHeaders = { "Content-Type": "application/json", "Accepts": "application/json" }
+
 const wineRecAPI = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/recommendation?maxPrice=50&minRating=0.7&number=10&wine='
 const winePairAPI = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/pairing?maxPrice=50&food='
 const foodPairAPI = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/dishes?wine="
@@ -29,6 +34,8 @@ class Initial extends Component {
         this.state = {
             isLoggedIn,
             users: [],
+            allWines: [],
+            userWines: [],
             currentUser: {},
             recSearchTxt: '',
             recWines: {},
@@ -39,10 +46,18 @@ class Initial extends Component {
 
     componentDidMount() {
         this.getUsers()
+        this.getWines()
+        this.getUsersWines()
     }
 
     getUsers = () => {
         return fetch(usersAPI).then(res => res.json()).then(data => this.setState({ users: data }))
+    }
+    getWines = () => {
+        return fetch(winesAPI).then(res => res.json()).then(data => this.setState({ allWines: data }))
+    }
+    getUsersWines = () => {
+        return fetch(usersWinesAPI).then(res => res.json()).then(data => this.setState({ userWines: data }))
     }
 
     postUser = (token) => {
@@ -119,7 +134,7 @@ class Initial extends Component {
             });
     }
 
-    
+
 
     postWine = (wine) => {
         console.log(wine)
@@ -148,6 +163,7 @@ class Initial extends Component {
         } else if (this.state.isLoggedIn) {
             return <Router>
                 <NavBar />
+                {console.log(this.state.userWines)}
                 <Route exact path="/recommendations"
                     component={() => <WineRec
                         getWineRec={this.getWineRec}
@@ -162,13 +178,17 @@ class Initial extends Component {
                     />} />
                 <Route exact path="/food_pairing"
                     component={() => <FoodPair
-                    getFoodPair={this.getFoodPair}
-                    foodPairing={this.state.foodPairing}
+                        getFoodPair={this.getFoodPair}
+                        foodPairing={this.state.foodPairing}
                     />} />
                 <Redirect to='/home' />
                 <Route exact path="/home"
-                    component={() => <Home currentUser={this.state.currentUser} setLogout={this.setLogout} />}
-                />
+                    component={() => <Home
+                        currentUser={this.state.currentUser} 
+                        setLogout={this.setLogout}
+                        allWines={this.state.allWines}
+                        userWines={this.state.userWines}
+                    />} />
             </Router>
 
         }
