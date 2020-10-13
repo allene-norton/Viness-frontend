@@ -26,7 +26,7 @@ class FoodPair extends Component {
     console.log(this.pairObj)
     return (
       <div className="food-pair-page">
-        <h2>Food Pair Page</h2>
+        <h2>Food Pairing</h2>
         <div><FoodSearch getFoodPair={this.props.getFoodPair} /></div>
         <div>{this.renderText(this.foodTxt)}</div>
         <div>{this.renderFoods(this.pairedFoods)}</div>

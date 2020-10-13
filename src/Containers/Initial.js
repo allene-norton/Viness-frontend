@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import NavBar from './NavBar'
 import Home from './Home'
 import WineRec from './WineRec'
@@ -152,43 +152,47 @@ class Initial extends Component {
         if (!this.state.isLoggedIn) {
             return (
                 <div className="App">
-                    <Login
-                        postUser={this.postUser}
-                        setCurrentUser={this.setCurrentUser}
-                        users={this.state.users}
-                    />
-                    <Logout setLogout={this.setLogout} />
+                    <Router>
+                        <Login
+                            postUser={this.postUser}
+                            setCurrentUser={this.setCurrentUser}
+                            users={this.state.users}
+                        />
+                        <Logout setLogout={this.setLogout} />
+                    </Router>
                 </div>
             )
         } else if (this.state.isLoggedIn) {
             return <Router>
                 <NavBar />
-                {console.log(this.state.userWines)}
-                <Route exact path="/recommendations"
-                    component={() => <WineRec
-                        getWineRec={this.getWineRec}
-                        wines={this.state.recWines}
-                        postWine={this.postWine}
-                    />} />
-                <Route exact path="/wine_pairing"
-                    component={() => <WinePair
-                        getWinePair={this.getWinePair}
-                        winePairing={this.state.winePairing}
-                        postWine={this.postWine}
-                    />} />
-                <Route exact path="/food_pairing"
-                    component={() => <FoodPair
-                        getFoodPair={this.getFoodPair}
-                        foodPairing={this.state.foodPairing}
-                    />} />
                 <Redirect to='/home' />
-                <Route exact path="/home"
-                    component={() => <Home
-                        currentUser={this.state.currentUser} 
-                        setLogout={this.setLogout}
-                        allWines={this.state.allWines}
-                        userWines={this.state.userWines}
-                    />} />
+                <Switch>
+                    <Route exact path="/recommendations"
+                        component={() => <WineRec
+                            getWineRec={this.getWineRec}
+                            wines={this.state.recWines}
+                            postWine={this.postWine}
+                        />} />
+                    <Route exact path="/wine_pairing"
+                        component={() => <WinePair
+                            getWinePair={this.getWinePair}
+                            winePairing={this.state.winePairing}
+                            postWine={this.postWine}
+                        />} />
+                    <Route exact path="/food_pairing"
+                        component={() => <FoodPair
+                            getFoodPair={this.getFoodPair}
+                            foodPairing={this.state.foodPairing}
+                        />} />
+                    {/* <Redirect to='/home' /> */}
+                    <Route exact path="/home"
+                        component={() => <Home
+                            currentUser={this.state.currentUser}
+                            setLogout={this.setLogout}
+                            allWines={this.state.allWines}
+                            userWines={this.state.userWines}
+                        />} />
+                </Switch>
             </Router>
 
         }
