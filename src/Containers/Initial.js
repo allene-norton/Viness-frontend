@@ -171,31 +171,35 @@ class Initial extends Component {
                 <NavBar />
                 <Redirect to='/home' />
                 <Switch>
-                    <Route exact path="/recommendations"
-                        component={() => <WineRec
+                    <Route exact path="/recommendations">
+                        <WineRec
                             getWineRec={this.getWineRec}
                             wines={this.state.recWines}
                             postWine={this.postWine}
-                        />} />
-                    <Route exact path="/wine_pairing"
-                        component={() => <WinePair
+                        />
+                        </Route>
+                    <Route exact path="/wine_pairing">
+                        <WinePair
                             getWinePair={this.getWinePair}
                             winePairing={this.state.winePairing}
                             postWine={this.postWine}
-                        />} />
-                    <Route exact path="/food_pairing"
-                        component={() => <FoodPair
+                        />
+                        </Route>
+                    <Route exact path="/food_pairing">
+                        <FoodPair
                             getFoodPair={this.getFoodPair}
                             foodPairing={this.state.foodPairing}
-                        />} />
+                        />
+                        </Route>
                     {/* <Redirect to='/home' /> */}
-                    <Route exact path="/home"
-                        component={() => <Home
+                    <Route exact path="/home">
+                        <Home
                             currentUser={this.state.currentUser}
                             setLogout={this.setLogout}
                             allWines={this.state.allWines}
                             userWines={this.state.userWines}
-                        />} />
+                        />
+                        </Route>
                 </Switch>
             </Router>
 
