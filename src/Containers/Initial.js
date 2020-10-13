@@ -50,6 +50,8 @@ class Initial extends Component {
         this.getUsersWines()
     }
 
+
+
     getUsers = () => {
         return fetch(usersAPI).then(res => res.json()).then(data => this.setState({ users: data }))
     }

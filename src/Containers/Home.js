@@ -3,7 +3,11 @@ import Logout from '../Components/Logout'
 import SavedWines from '../Components/SavedWines'
 
 class Home extends Component {
-  renderSavedWines = () => {
+  state = {
+    saved: []
+  }
+
+  getSavedWines = () => {
     let allWines = this.props.allWines
     let allUserWines = this.props.userWines
     let userId = JSON.parse(localStorage.getItem('user')).user_id
@@ -14,7 +18,26 @@ class Home extends Component {
       let wine = allWines.filter(wine => wine.id === wineIds[i])[0]
       userWineData.push(wine)
     }
-    return userWineData.map(wine => <SavedWines key={wine.id} wine={wine} />)
+    this.setState({ saved: userWineData })
+  }
+
+  componentDidMount() {
+    this.getSavedWines()
+  }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.saved !== this.state.saved) {
+  //     this.getSavedWines()
+  //   } else {return}
+  // }
+
+  // componentDidUpdate() {
+  //   this.getSavedWines()
+  // }
+
+
+  renderSavedWines = () => {
+    return this.state.saved.map(wine => <SavedWines key={wine.id} wine={wine} />)
   }
   render() {
     let user = JSON.parse(localStorage.getItem('user'))
@@ -25,7 +48,7 @@ class Home extends Component {
         <img src={user.imageUrl} alt={user.name} />
         <div className='saved-wines'>
           <h3>My saved wines:</h3>
-          {this.renderSavedWines()}
+          {this.state.saved.length >= 1 ? this.renderSavedWines() : <p>You don't have any saved wines yet.</p>}
         </div>
         <Logout />
       </div>

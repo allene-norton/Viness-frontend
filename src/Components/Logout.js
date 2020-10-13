@@ -4,13 +4,13 @@ import { GoogleLogout } from 'react-google-login'
 const clientId = '278233718971-h98g350r0u4bcu0at4blpjmaf42crgiv.apps.googleusercontent.com'
 
 class Logout extends Component {
-    state = {
-        loggedOut: false
-    }
+    // state = {
+    //     loggedOut: false
+    // }
     onSuccess = () => {
         alert('Logout made sucessfully!')
         // this.props.setLogout()
-        this.setState({loggedOut: true})
+        // this.setState({loggedOut: true})
         localStorage.clear()
         window.location.href = '/'
     }

@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
 
 class RecResults extends Component {
 
     handleClick = () => {
         let userId = JSON.parse(localStorage.getItem('user')).user_id
         this.props.postWine({...this.props.wine, user_id: userId})
+        alert('Your wine has been saved to your profile!')
+        // return <Redirect to='/home' />
         // this.props.postUserWine(this.props.wine)
     }
 
