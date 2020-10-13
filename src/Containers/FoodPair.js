@@ -5,23 +5,23 @@ import FoodResults from '../Components/FoodResults'
 class FoodPair extends Component {
   state = {
     foodPairing: this.props.foodPairing
-}
+  }
 
-pairObj = this.state.foodPairing
+  pairObj = this.state.foodPairing
 
-pairedFoods = this.pairObj.pairings
-foodTxt = this.pairObj.text
+  pairedFoods = this.pairObj.pairings
+  foodTxt = this.pairObj.text
 
-renderFoods = (foods) => {
-    if (Object.keys(this.pairObj).length >= 1)
-    {return foods.map(food => <FoodResults key={food} food={food} />)}
-    else {return undefined}
-}
-renderText = (text) => {
-    if (Object.keys(this.pairObj).length >= 1)
-    {return <p>{text}</p>}
-    else {return undefined}
-}
+  renderFoods = (foods) => {
+    if (Object.keys(this.pairObj).includes('status')) { return <p>{this.pairObj.message}</p> }
+    else if (Object.keys(this.pairObj).includes('pairings')) { return foods.map(food => <FoodResults key={food} food={food} />) }
+    else { return undefined }
+  }
+  renderText = (text) => {
+    if (Object.keys(this.pairObj).includes('status')) { return undefined }
+    else if (Object.keys(this.pairObj).includes('text')) { return <p>{text}</p> }
+    else { return undefined }
+  }
   render() {
     console.log(this.pairObj)
     return (
