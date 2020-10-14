@@ -11,9 +11,8 @@ function Login(props) {
         let token = res.getAuthResponse().id_token
         let data = res.profileObj
         let user = props.users.filter(user => user.uid === data.googleId)[0]
-        // console.log({...data, user_id: user.id})
         props.postUser(token)
-        props.setCurrentUser({...data, user_id: user.id})
+        props.setCurrentUser({...data, user_id: user.id, wines: user.wines})
     }
 
     const onFailure = (res) => {

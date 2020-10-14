@@ -9,8 +9,7 @@ import Login from '../Components/Login'
 import Logout from '../Components/Logout'
 
 const usersAPI = 'http://localhost:3000/users'
-const winesAPI = 'http://localhost:3000/wines'
-const usersWinesAPI = 'http://localhost:3000/users_wines'
+
 
 const postWines = 'http://localhost:3000/wines'
 
@@ -26,18 +25,14 @@ class Initial extends Component {
     constructor() {
         super()
 
-        let isLoggedIn = false;
-        // if (window.location.href.includes("/home")) {
-        //     isLoggedIn = true;
-        // }
-
+        // sessionStorage.setItem('isLoggedIn', false)
+        // sessionStorage.setItem('user', null)
+       
         this.state = {
             isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
             users: [],
-            allWines: [],
-            userWines: [],
-            saved: [],
-            currentUser: {},
+            saved: JSON.parse(sessionStorage.getItem('saved')),
+            currentUser: JSON.parse(sessionStorage.getItem('user')),
             recSearchTxt: '',
             recWines: {},
             winePairing: {},
@@ -47,54 +42,16 @@ class Initial extends Component {
 
     componentDidMount() {
         this.getUsers()
-        this.getWines()
-        this.getUsersWines()
-        // this.getSavedWines()
-        // setTimeout(() => {this.getSavedWines()}, 1100)
     }
-
-    // saved = []
-
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (prevState.userWines === this.state.userWines) { return } else {
-    //         this.getUsersWines()
-    //         this.getSavedWines()
-    //     }
-    // }
-
-    getSavedWines = () => {
-        if (JSON.parse(sessionStorage.getItem('user')) !== null) {
-            let allWines = this.state.allWines
-            let allUserWines = this.state.userWines
-            let userId = JSON.parse(sessionStorage.getItem('user')).user_id
-            let userWines = allUserWines.filter(wine => wine.user_id === userId)
-            let wineIds = userWines.map(wine => wine.wine_id)
-            let userWineData = []
-            for (let i = 0; i < wineIds.length; i++) {
-                let wine = allWines.filter(wine => wine.id === wineIds[i])[0]
-                userWineData.push(wine)
-            }
-            this.setState({saved: userWineData})
-            console.log(this.state.saved)
-        }
-    }
-
-
-
 
     getUsers = () => {
-        return fetch(usersAPI).then(res => res.json()).then(data => this.setState({ users: data }))
+        return fetch(usersAPI).then(res => res.json()).then(data => {
+            this.setState({
+                users: data
+            })
+        })
     }
-    getWines = () => {
-        return fetch(winesAPI).then(res => res.json()).then(data => this.setState({ allWines: data }))
-    }
-    getUsersWines = () => {
-        return fetch(usersWinesAPI).then(res => res.json())
-        .then(data => 
-            {this.getSavedWines() 
-            this.setState({ userWines: data })})
-    }
-
+   
     postUser = (token) => {
         return fetch(usersAPI, {
             method: 'POST',
@@ -110,9 +67,11 @@ class Initial extends Component {
     setCurrentUser = (obj) => {
         sessionStorage.setItem('isLoggedIn', true)
         sessionStorage.setItem('user', JSON.stringify(obj))
+        sessionStorage.setItem('saved', JSON.stringify(obj.wines))
         this.setState({
             isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
-            currentUser: JSON.parse(sessionStorage.getItem('user'))
+            currentUser: JSON.parse(sessionStorage.getItem('user')),
+            saved: JSON.parse(sessionStorage.getItem('saved'))
         })
         console.log(this.state.isLoggedIn, this.state.currentUser)
     }
@@ -120,9 +79,11 @@ class Initial extends Component {
     setLogout = () => {
         sessionStorage.setItem('isLoggedIn', false)
         sessionStorage.setItem('user', null)
+        sessionStorage.setItem('saved', null)
         this.setState({
             isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
-            currentUser: JSON.parse(sessionStorage.getItem('user'))
+            currentUser: JSON.parse(sessionStorage.getItem('user')),
+            saved: JSON.parse(sessionStorage.getItem('saved'))
         })
     }
 
@@ -171,8 +132,6 @@ class Initial extends Component {
             });
     }
 
-
-
     postWine = (wine) => {
         console.log(wine)
         return fetch(postWines, {
@@ -181,7 +140,7 @@ class Initial extends Component {
             body: JSON.stringify(wine)
         })
             .then(res => res.json())
-            .then(data => this.setState((prev) => ({saved: [...prev.saved, data]})))
+            .then(data => this.setState((prev) => ({ saved: [...prev.saved, data] })))
     }
 
     renderLoginOrHome = () => {
@@ -231,8 +190,6 @@ class Initial extends Component {
                             currentUser={this.state.currentUser}
                             setLogout={this.setLogout}
                             saved={this.state.saved}
-                        // allWines={this.state.allWines}
-                        // userWines={this.state.userWines}
                         />
                     </Route>
                 </Switch>
