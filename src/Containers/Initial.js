@@ -36,6 +36,7 @@ class Initial extends Component {
             users: [],
             allWines: [],
             userWines: [],
+            saved: [],
             currentUser: {},
             recSearchTxt: '',
             recWines: {},
@@ -48,7 +49,36 @@ class Initial extends Component {
         this.getUsers()
         this.getWines()
         this.getUsersWines()
+        // this.getSavedWines()
+        setTimeout(() => {this.getSavedWines()}, 1100)
     }
+
+    // saved = []
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.userWines === this.state.userWines) { return } else {
+    //         this.getUsersWines()
+    //         this.getSavedWines()
+    //     }
+    // }
+
+    getSavedWines = () => {
+        if (JSON.parse(sessionStorage.getItem('user')) !== null) {
+            let allWines = this.state.allWines
+            let allUserWines = this.state.userWines
+            let userId = JSON.parse(sessionStorage.getItem('user')).user_id
+            let userWines = allUserWines.filter(wine => wine.user_id === userId)
+            let wineIds = userWines.map(wine => wine.wine_id)
+            let userWineData = []
+            for (let i = 0; i < wineIds.length; i++) {
+                let wine = allWines.filter(wine => wine.id === wineIds[i])[0]
+                userWineData.push(wine)
+            }
+            this.setState({saved: userWineData})
+            console.log(this.state.saved)
+        }
+    }
+
 
 
 
@@ -148,7 +178,7 @@ class Initial extends Component {
             body: JSON.stringify(wine)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => this.setState((prev) => ({saved: [...prev.saved, data]})))
     }
 
     renderLoginOrHome = () => {
@@ -170,6 +200,7 @@ class Initial extends Component {
             return <Router>
                 <NavBar />
                 <Redirect to='/home' />
+                {/* {this.getSavedWines()} */}
                 <Switch>
                     <Route exact path="/recommendations">
                         <WineRec
@@ -177,29 +208,30 @@ class Initial extends Component {
                             wines={this.state.recWines}
                             postWine={this.postWine}
                         />
-                        </Route>
+                    </Route>
                     <Route exact path="/wine_pairing">
                         <WinePair
                             getWinePair={this.getWinePair}
                             winePairing={this.state.winePairing}
                             postWine={this.postWine}
                         />
-                        </Route>
+                    </Route>
                     <Route exact path="/food_pairing">
                         <FoodPair
                             getFoodPair={this.getFoodPair}
                             foodPairing={this.state.foodPairing}
                         />
-                        </Route>
+                    </Route>
                     {/* <Redirect to='/home' /> */}
                     <Route exact path="/home">
                         <Home
                             currentUser={this.state.currentUser}
                             setLogout={this.setLogout}
-                            allWines={this.state.allWines}
-                            userWines={this.state.userWines}
+                            saved={this.state.saved}
+                        // allWines={this.state.allWines}
+                        // userWines={this.state.userWines}
                         />
-                        </Route>
+                    </Route>
                 </Switch>
             </Router>
 
