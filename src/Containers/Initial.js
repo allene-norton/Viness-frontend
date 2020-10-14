@@ -10,7 +10,6 @@ import Logout from '../Components/Logout'
 
 const usersAPI = 'http://localhost:3000/users'
 
-
 const postWines = 'http://localhost:3000/wines'
 
 const API_KEY = process.env.REACT_APP_SPOON_API_KEY;
@@ -24,9 +23,6 @@ const foodPairAPI = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com
 class Initial extends Component {
     constructor() {
         super()
-
-        // sessionStorage.setItem('isLoggedIn', false)
-        // sessionStorage.setItem('user', null)
        
         this.state = {
             isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
@@ -76,16 +72,16 @@ class Initial extends Component {
         console.log(this.state.isLoggedIn, this.state.currentUser)
     }
 
-    setLogout = () => {
-        sessionStorage.setItem('isLoggedIn', false)
-        sessionStorage.setItem('user', null)
-        sessionStorage.setItem('saved', null)
-        this.setState({
-            isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
-            currentUser: JSON.parse(sessionStorage.getItem('user')),
-            saved: JSON.parse(sessionStorage.getItem('saved'))
-        })
-    }
+    // setLogout = () => {
+    //     sessionStorage.setItem('isLoggedIn', false)
+    //     sessionStorage.setItem('user', null)
+    //     sessionStorage.setItem('saved', null)
+    //     this.setState({
+    //         isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
+    //         currentUser: JSON.parse(sessionStorage.getItem('user')),
+    //         saved: JSON.parse(sessionStorage.getItem('saved'))
+    //     })
+    // }
 
     getWineRec = (query) => {
         return fetch(wineRecAPI + query, {
