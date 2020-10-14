@@ -3,11 +3,11 @@ import RecResults from './RecResults'
 
 class PairResults extends Component {
 
-    state = {
-        winePairing: this.props.winePairing
-    }
+    // state = {
+    //     winePairing: this.props.winePairing
+    // }
 
-    pairObj = this.state.winePairing
+    pairObj = this.props.winePairing
 
     pairedWines = this.pairObj.pairedWines
     desc = this.pairObj.pairingText
@@ -20,7 +20,7 @@ class PairResults extends Component {
     renderWines = (wines) => {
         if (Object.keys(this.pairObj).includes('status')) { return <p>{this.pairObj.message}</p> }
         else if (Object.keys(this.pairObj).includes('pairedWines')) {
-            if (wines.length === 0) { return <p>Could not find a match. Please try again with a dish, ingredient, or cuisine type.</p> } else { return wines.map(wine => <RecResults key={wine.id} wine={wine} postWine={this.props.postWine} />) }}
+            if (wines.length === 0) { return <p>Could not find a match. Please try again with another dish, ingredient, or cuisine type.</p> } else { return wines.map(wine => <RecResults key={wine.id} wine={wine} postWine={this.props.postWine} />) }}
         else { return undefined }
         }
 
@@ -28,6 +28,7 @@ class PairResults extends Component {
             console.log(this.pairObj)
             return (
                 <div className="rec-results">
+                    {console.log(this.pairedWines)}
                     <div className="paired-wines">
                         <ul>
                             {this.renderPairs(this.pairedWines)}

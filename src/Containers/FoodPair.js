@@ -3,33 +3,33 @@ import FoodSearch from '../Components/FoodSearch'
 import FoodResults from '../Components/FoodResults'
 
 class FoodPair extends Component {
-  state = {
-    foodPairing: this.props.foodPairing
-  }
+  // state = {
+  //   foodPairing: this.props.foodPairing
+  // }
 
-  pairObj = this.state.foodPairing
+  // pairObj = this.props.foodPairing
 
-  pairedFoods = this.pairObj.pairings
-  foodTxt = this.pairObj.text
+  pairedFoods = this.props.foodPairing.pairings
+  foodTxt = this.props.foodPairing.text
 
   renderFoods = (foods) => {
-    if (Object.keys(this.pairObj).includes('status')) { return <p>{this.pairObj.message}</p> }
-    else if (Object.keys(this.pairObj).includes('pairings')) { return foods.map(food => <FoodResults key={food} food={food} />) }
+    if (Object.keys(this.props.foodPairing).includes('status')) { return <p>{this.props.foodPairing.message}</p> }
+    else if (Object.keys(this.props.foodPairing).includes('pairings')) { return foods.map(food => <FoodResults key={food} food={food} />) }
     else { return undefined }
   }
   renderText = (text) => {
-    if (Object.keys(this.pairObj).includes('status')) { return undefined }
-    else if (Object.keys(this.pairObj).includes('text')) { return <p>{text}</p> }
+    if (Object.keys(this.props.foodPairing).includes('status')) { return undefined }
+    else if (Object.keys(this.props.foodPairing).includes('text')) { return <p>{text}</p> }
     else { return undefined }
   }
   render() {
-    console.log(this.pairObj)
+    console.log(this.props.foodPairing)
     return (
       <div className="food-pair-page">
         <h2>Food Pairing</h2>
         <div><FoodSearch getFoodPair={this.props.getFoodPair} /></div>
-        <div>{this.renderText(this.foodTxt)}</div>
-        <div>{this.renderFoods(this.pairedFoods)}</div>
+        <div>{this.renderText(this.props.foodPairing.text)}</div>
+        <div>{this.renderFoods(this.props.foodPairing.pairings)}</div>
       </div>
     );
   }

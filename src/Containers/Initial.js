@@ -50,7 +50,7 @@ class Initial extends Component {
         this.getWines()
         this.getUsersWines()
         // this.getSavedWines()
-        setTimeout(() => {this.getSavedWines()}, 1100)
+        // setTimeout(() => {this.getSavedWines()}, 1100)
     }
 
     // saved = []
@@ -89,7 +89,10 @@ class Initial extends Component {
         return fetch(winesAPI).then(res => res.json()).then(data => this.setState({ allWines: data }))
     }
     getUsersWines = () => {
-        return fetch(usersWinesAPI).then(res => res.json()).then(data => this.setState({ userWines: data }))
+        return fetch(usersWinesAPI).then(res => res.json())
+        .then(data => 
+            {this.getSavedWines() 
+            this.setState({ userWines: data })})
     }
 
     postUser = (token) => {
