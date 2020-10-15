@@ -10,6 +10,7 @@ import Logout from '../Components/Logout'
 
 const usersAPI = 'http://localhost:3000/users'
 const commentsAPI = 'http://localhost:3000/comments'
+const userWinesAPI = 'http://localhost:3000/users_wines'
 
 const postWines = 'http://localhost:3000/wines'
 
@@ -28,7 +29,7 @@ class Initial extends Component {
         this.state = {
             isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
             users: [],
-            saved: [],
+            saved: JSON.parse(sessionStorage.getItem('saved')),
             currentUser: JSON.parse(sessionStorage.getItem('user')),
             recSearchTxt: '',
             recWines: {},
@@ -78,16 +79,6 @@ class Initial extends Component {
         console.log(this.state.isLoggedIn, this.state.currentUser)
     }
 
-    // setLogout = () => {
-    //     sessionStorage.setItem('isLoggedIn', false)
-    //     sessionStorage.setItem('user', null)
-    //     sessionStorage.setItem('saved', null)
-    //     this.setState({
-    //         isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
-    //         currentUser: JSON.parse(sessionStorage.getItem('user')),
-    //         saved: JSON.parse(sessionStorage.getItem('saved'))
-    //     })
-    // }
 
     getWineRec = (query) => {
         return fetch(wineRecAPI + query, {
@@ -148,6 +139,18 @@ class Initial extends Component {
             })
     }
 
+    deleteWine = (wineId) => {
+        return fetch(`${userWinesAPI}/${wineId}`, {
+            method: 'DELETE',
+            headers: myHeaders
+        })
+            .then(data => {
+                console.log(data)
+                this.setState((prev) => ({ saved: prev.saved.filter(wine => wine.id !== wineId) }))
+                sessionStorage.setItem('saved', JSON.stringify(this.state.saved))
+            })
+    }
+
     postComment = (comment) => {
         return fetch(commentsAPI, {
             method: 'POST',
@@ -159,14 +162,21 @@ class Initial extends Component {
     }
 
     getUserWines = (user) => {
-        if (this.state.currentUser !== null)
-        {return fetch('http://localhost:3000/saved', {
-            method: 'POST',
-            headers: myHeaders,
-            body: JSON.stringify({ user_id: user.id })
-        })
-            .then(res => res.json())
-            .then(data => this.setState({ saved: data }))}
+        if (this.state.currentUser !== null) {
+            return fetch('http://localhost:3000/saved', {
+                method: 'POST',
+                headers: myHeaders,
+                body: JSON.stringify({ user_id: user.id })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    sessionStorage.setItem('saved', JSON.stringify(data))
+                    this.setState({
+                        saved: JSON.parse(sessionStorage.getItem('saved'))
+                    })
+                })
+        }
     }
 
     renderLoginOrHome = () => {
@@ -214,9 +224,9 @@ class Initial extends Component {
                     <Route exact path="/home">
                         <Home
                             currentUser={this.state.currentUser}
-                            setLogout={this.setLogout}
                             saved={this.state.saved}
                             postComment={this.postComment}
+                            deleteWine={this.deleteWine}
                         />
                     </Route>
                 </Switch>

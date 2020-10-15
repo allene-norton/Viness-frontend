@@ -3,6 +3,10 @@ import CommentsContainer from '../Containers/CommentsContainer'
 
 class WineInfo extends Component {
 
+    handleDelete = () => {
+        this.props.deleteWine(this.props.wine.id)
+    }
+
     render() {
         let wine = this.props.wine
         console.log(wine.title)
@@ -16,6 +20,7 @@ class WineInfo extends Component {
                 <h3>Rating: {wine.averageRating}</h3>
                 <h4>Comments:</h4>
                 <CommentsContainer wine={this.props.wine} postComment={this.props.postComment} />
+                <button onClick={this.handleDelete} >Delete Wine</button>
             </div>
         );
     }

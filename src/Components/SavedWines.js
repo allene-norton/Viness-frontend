@@ -10,14 +10,20 @@ class SavedWines extends Component {
         this.setState({ displayWine: !this.state.displayWine })
     }
 
+    handleDelete = () => {
+        console.log(this.props.wine.id)
+        this.props.deleteWine(this.props.wine.id)
+    }
+
     renderWine = () => {
         if (this.state.displayWine) {
             let wine = this.props.wine
-            console.log(wine.title)
+            console.log(wine)
             return (
                 <div className="saved-wine">
                     <h1>{wine.title}</h1>
                     <img onClick={() => this.handleClick()} src={wine.imageUrl} alt={wine.title} />
+                    <button onClick={this.handleDelete} >Delete Wine</button>
                 </div>
             )
         } else {
@@ -25,7 +31,7 @@ class SavedWines extends Component {
             console.log(wine.title)
             return (
                 <div className="saved-wine">
-                    <WineInfo wine={this.props.wine} closeDisplay={this.handleClick} postComment={this.props.postComment} />
+                    <WineInfo wine={this.props.wine} closeDisplay={this.handleClick} postComment={this.props.postComment} deleteWine={this.props.deleteWine} />
                 </div>
             );
         }
