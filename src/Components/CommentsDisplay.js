@@ -10,7 +10,7 @@ class CommentsDisplay extends Component {
     render() {
         return (
             <div className='comments-form'>
-                <h3>I'm the comments container</h3>
+                <h3>I'm the comments display</h3>
                 <ul>
                     {this.renderComments()}
                 </ul>

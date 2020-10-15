@@ -15,7 +15,7 @@ class CommentsForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.postComment(this.state)
-        this.props.handlePost(this.state)
+        this.props.handlePost({...this.state, username: JSON.parse(sessionStorage.getItem('user')).display_name})
         document.getElementById("comment-form").reset()
     }
 
