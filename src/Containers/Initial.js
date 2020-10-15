@@ -58,7 +58,9 @@ class Initial extends Component {
             body: JSON.stringify({ id_token: token })
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                this.setCurrentUser(data)
+            })
     }
 
     setCurrentUser = (obj) => {

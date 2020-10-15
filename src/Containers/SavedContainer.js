@@ -11,7 +11,8 @@ class SavedContainer extends Component {
       <div className="home">
         <div className='saved-wines'>
           <h3>My saved wines:</h3>
-          {this.props.saved ? this.renderSavedWines() : <p>You don't have any saved wines yet.</p>}
+          {console.log(this.props.saved)}
+          {this.props.saved.length >= 1 ? this.renderSavedWines() : <p>You don't have any saved wines yet.</p>}
         </div>
       </div>
     );

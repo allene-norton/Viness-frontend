@@ -5,11 +5,9 @@ import { Link } from 'react-router-dom'
 class RecResults extends Component {
 
     handleClick = () => {
-        let userId = JSON.parse(sessionStorage.getItem('user')).user_id
+        let userId = JSON.parse(sessionStorage.getItem('user')).id
         this.props.postWine({...this.props.wine, user_id: userId})
         alert('Your wine has been saved to your profile!')
-        // return <Redirect to='/home' />
-        // this.props.postUserWine(this.props.wine)
     }
 
     render() {

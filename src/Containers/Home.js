@@ -5,12 +5,12 @@ import SavedContainer from './SavedContainer'
 class Home extends Component {
 
   render() {
-    let user = JSON.parse(sessionStorage.getItem('user'))
+    let user = this.props.currentUser
     return (
       <div className="home">
         <h2>Viness Home Page</h2>
-        <h3>{user.name}</h3>
-        <img src={user.imageUrl} alt={user.name} />
+        <h3>{user.display_name}</h3>
+        <img src={user.image} alt={user.display_name} />
         <div className='saved-wines'>
           <SavedContainer saved={this.props.saved} />
         </div>
