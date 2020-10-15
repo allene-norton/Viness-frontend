@@ -29,7 +29,7 @@ class Initial extends Component {
         this.state = {
             isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
             users: [],
-            saved: JSON.parse(sessionStorage.getItem('saved')),
+            saved: [],
             currentUser: JSON.parse(sessionStorage.getItem('user')),
             recSearchTxt: '',
             recWines: {},
@@ -44,7 +44,6 @@ class Initial extends Component {
 
     getUsers = () => {
         return fetch(usersAPI).then(res => res.json()).then(data => {
-            console.log(data)
             this.setState({
                 users: data
             })
@@ -161,19 +160,19 @@ class Initial extends Component {
             .then(data => console.log(data))
     }
 
-    getUserWines = (user) => {
+    getUserWines = () => {
         if (this.state.currentUser !== null) {
             return fetch('http://localhost:3000/saved', {
                 method: 'POST',
                 headers: myHeaders,
-                body: JSON.stringify({ user_id: user.id })
+                body: JSON.stringify({ user_id: this.state.currentUser.id })
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
-                    sessionStorage.setItem('saved', JSON.stringify(data))
+                    // console.log(data)
+                    // sessionStorage.setItem('saved', JSON.stringify(data))
                     this.setState({
-                        saved: JSON.parse(sessionStorage.getItem('saved'))
+                        saved: data
                     })
                 })
         }
