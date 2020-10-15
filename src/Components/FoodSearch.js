@@ -8,6 +8,7 @@ class FoodSearch extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.getFoodPair(this.state.searchTxt)
+        document.getElementById("food-search-form").reset()
     }
 
     handleChange = (e) => {
@@ -16,8 +17,8 @@ class FoodSearch extends Component {
     }
     render() {
         return (
-            <div className="pair-search">
-                <form onSubmit={(e) => this.handleSubmit(e)}>
+            <div className="food-search">
+                <form id='food-search-form' onSubmit={(e) => this.handleSubmit(e)}>
                     <input type='text' placeholder='Enter a varietal' onChange={(e) => this.handleChange(e)}/>
                     <input type="submit" />
                 </form>

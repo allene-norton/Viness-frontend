@@ -8,6 +8,7 @@ class PairSearch extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.getWinePair(this.state.searchTxt)
+        document.getElementById("pair-search-form").reset()
     }
 
     handleChange = (e) => {
@@ -17,7 +18,7 @@ class PairSearch extends Component {
     render() {
         return (
             <div className="pair-search">
-                <form onSubmit={(e) => this.handleSubmit(e)}>
+                <form id='pair-search-form' onSubmit={(e) => this.handleSubmit(e)}>
                     <input type='text' placeholder='Enter a dish, ingredient, or cuisine type' onChange={(e) => this.handleChange(e)}/>
                     <input type="submit" />
                 </form>
