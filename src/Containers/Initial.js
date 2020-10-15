@@ -47,6 +47,7 @@ class Initial extends Component {
             this.setState({
                 users: data
             })
+            this.getUserWines()
         })
     }
 
