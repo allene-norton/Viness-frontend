@@ -195,6 +195,8 @@ class Initial extends Component {
                 </div>
             )
         } else if (this.state.isLoggedIn) {
+            let keyCount = 0
+            keyCount++
             return <Router>
                 <NavBar />
                 <Redirect to='/home' />
@@ -227,6 +229,7 @@ class Initial extends Component {
                             saved={this.state.saved}
                             postComment={this.postComment}
                             deleteWine={this.deleteWine}
+                            key={keyCount}
                         />
                     </Route>
                 </Switch>
