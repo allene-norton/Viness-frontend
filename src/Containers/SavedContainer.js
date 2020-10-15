@@ -4,7 +4,7 @@ import SavedWines from '../Components/SavedWines'
 class SavedContainer extends Component {
 
   renderSavedWines = () => {
-    return this.props.saved.map(wine => <SavedWines key={wine.id} wine={wine} />)
+    return this.props.saved.map(wine => <SavedWines key={wine.id} wine={wine} postComment={this.props.postComment} />)
   }
   render() {
     return (

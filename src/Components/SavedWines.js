@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
+import WineInfo from './WineInfo'
 
 class SavedWines extends Component {
+    state = {
+        displayWine: true
+    }
 
-    // handleClick = () => {
-    //     let userId = JSON.parse(sessionStorage.getItem('user')).user_id
-    //     this.props.postWine({...this.props.wine, user_id: userId})
-    //     this.props.postUserWine(this.props.wine)
-    // }
+    handleClick = () => {
+        this.setState({ displayWine: !this.state.displayWine })
+    }
+
+    renderWine = () => {
+        if (this.state.displayWine) {
+            let wine = this.props.wine
+            console.log(wine.title)
+            return (
+                <div className="saved-wine">
+                    <h1>{wine.title}</h1>
+                    <img onClick={() => this.handleClick()} src={wine.imageUrl} alt={wine.title} />
+                </div>
+            )
+        } else {
+            let wine = this.props.wine
+            console.log(wine.title)
+            return (
+                <div className="saved-wine">
+                    <WineInfo wine={this.props.wine} closeDisplay={this.handleClick} postComment={this.props.postComment} />
+                </div>
+            );
+        }
+    }
 
     render() {
-        // let userId = JSON.parse(sessionStorage.getItem('user')).user_id
-        // console.log({...this.props.wine, user_id: userId})
         let wine = this.props.wine
         console.log(wine.title)
         return (
-            <div className="rec-results">
-                <h1>{wine.title}</h1>
-                <img src={wine.imageUrl} alt={wine.title} />
-                <h3>{wine.description}</h3>
-                <h3>{wine.price}</h3>
-                {/* <button onClick={this.handleClick} >Save Wine</button> */}
+            <div className="saved">
+                {this.renderWine()}
             </div>
         );
     }

@@ -9,6 +9,7 @@ import Login from '../Components/Login'
 import Logout from '../Components/Logout'
 
 const usersAPI = 'http://localhost:3000/users'
+const commentsAPI = 'http://localhost:3000/comments'
 
 const postWines = 'http://localhost:3000/wines'
 
@@ -23,7 +24,7 @@ const foodPairAPI = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com
 class Initial extends Component {
     constructor() {
         super()
-       
+
         this.state = {
             isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
             users: [],
@@ -47,7 +48,7 @@ class Initial extends Component {
             })
         })
     }
-   
+
     postUser = (token) => {
         return fetch(usersAPI, {
             method: 'POST',
@@ -139,7 +140,20 @@ class Initial extends Component {
             body: JSON.stringify(wine)
         })
             .then(res => res.json())
-            .then(data => this.setState((prev) => ({ saved: [...prev.saved, data] })))
+            .then(data => {
+                this.setState((prev) => ({ saved: [...prev.saved, data] }))
+                sessionStorage.setItem('saved', JSON.stringify([...this.state.currentUser.wines, data]))
+            })
+    }
+
+    postComment = (comment) => {
+        return fetch(commentsAPI, {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify(comment)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
     }
 
     renderLoginOrHome = () => {
@@ -189,6 +203,7 @@ class Initial extends Component {
                             currentUser={this.state.currentUser}
                             setLogout={this.setLogout}
                             saved={this.state.saved}
+                            postComment={this.postComment}
                         />
                     </Route>
                 </Switch>
