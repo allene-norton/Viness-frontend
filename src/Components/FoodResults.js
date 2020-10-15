@@ -1,34 +1,18 @@
 import React, { Component } from 'react';
-
+import Recipe from './Recipe'
 class FoodResults extends Component {
 
-    state = {
+    renderRecipes = () => {
+        return this.props.recipes.map(recipe => <Recipe key={recipe.name} recipe={recipe} />)
     }
 
-    // pairObj = this.state.winePairing
-
-    // pairedWines = this.pairObj.pairedWines
-    // desc = this.pairObj.pairingText
-    // bottles = this.pairObj.productMatches
-    // renderPairs = (pairs) => {
-    //     if (Object.keys(this.pairObj).length >= 1)
-    //     {return pairs.map(wine => <li>{wine}</li>)}
-    //     else {return undefined}
-    // }
-    // renderWines = (wines) => {
-    //     if (Object.keys(this.pairObj).length >= 1)
-    //     {return wines.map(wine => <RecResults key={wine.id} wine={wine} postWine={this.props.postWine} />)}
-    //     else {return undefined}
-    // }
-
     render() {
-        let food = this.props.food
+        let recipes = this.props.recipes
         return (
             <div className="food-results">
                 <div className="paired-foods">
-                    <p>
-                        {food}
-                    </p>
+                    {console.log(recipes)}
+                    {this.renderRecipes()}
                 </div>
             </div>
         );

@@ -21,6 +21,7 @@ const myHeaders = { "Content-Type": "application/json", "Accepts": "application/
 const wineRecAPI = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/recommendation?maxPrice=50&minRating=0.7&number=10&wine='
 const winePairAPI = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/pairing?maxPrice=50&food='
 const foodPairAPI = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/dishes?wine="
+const recipeAPI = "https://rapidapi.p.rapidapi.com/food/site/search?query="
 
 class Initial extends Component {
     constructor() {
@@ -34,7 +35,9 @@ class Initial extends Component {
             recSearchTxt: '',
             recWines: {},
             winePairing: {},
-            foodPairing: {}
+            foodPairing: {},
+            pairedFoods: [],
+            pairedRecipes: []
         }
     }
 
@@ -119,10 +122,35 @@ class Initial extends Component {
             }
         })
             .then(res => res.json())
-            .then(data => this.setState({ foodPairing: data }))
+            .then(data => {
+                this.setState({
+                    foodPairing: data,
+                    pairedFoods: data.pairings
+                })
+                this.state.pairedFoods.map(food => this.getRecipe(food))
+            })
             .catch(err => {
                 console.log(err);
             });
+    }
+
+    getRecipe = (query) => {
+        return fetch(recipeAPI + query, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+                "x-rapidapi-key": API_KEY
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data.Recipes)
+                this.setState({ pairedRecipes: [...this.state.pairedRecipes, data.Recipes] })
+            })
+    }
+
+    clearRecipes = () => {
+        this.setState({ pairedRecipes: [] })
     }
 
     postWine = (wine) => {
@@ -223,6 +251,8 @@ class Initial extends Component {
                         <FoodPair
                             getFoodPair={this.getFoodPair}
                             foodPairing={this.state.foodPairing}
+                            pairedRecipes={this.state.pairedRecipes}
+                            clearRecipes={this.clearRecipes}
                         />
                     </Route>
                     {/* <Redirect to='/home' /> */}

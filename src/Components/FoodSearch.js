@@ -7,6 +7,7 @@ class FoodSearch extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        this.props.clearRecipes()
         this.props.getFoodPair(this.state.searchTxt)
         document.getElementById("food-search-form").reset()
     }

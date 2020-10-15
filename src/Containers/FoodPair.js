@@ -3,18 +3,13 @@ import FoodSearch from '../Components/FoodSearch'
 import FoodResults from '../Components/FoodResults'
 
 class FoodPair extends Component {
-  // state = {
-  //   foodPairing: this.props.foodPairing
-  // }
-
-  // pairObj = this.props.foodPairing
-
+  
   pairedFoods = this.props.foodPairing.pairings
   foodTxt = this.props.foodPairing.text
 
   renderFoods = (foods) => {
     if (Object.keys(this.props.foodPairing).includes('status')) { return <p>{this.props.foodPairing.message}</p> }
-    else if (Object.keys(this.props.foodPairing).includes('pairings')) { return foods.map(food => <FoodResults key={food} food={food} />) }
+    else if (Object.keys(this.props.foodPairing).includes('pairings')) { return this.props.pairedRecipes.map(recipes => <FoodResults key={recipes[0].name} recipes={recipes}  />) }
     else { return undefined }
   }
   renderText = (text) => {
@@ -27,7 +22,7 @@ class FoodPair extends Component {
     return (
       <div className="food-pair-page">
         <h2>Food Pairing</h2>
-        <div><FoodSearch getFoodPair={this.props.getFoodPair} /></div>
+        <div><FoodSearch getFoodPair={this.props.getFoodPair} clearRecipes={this.props.clearRecipes} /></div>
         <div>{this.renderText(this.props.foodPairing.text)}</div>
         <div>{this.renderFoods(this.props.foodPairing.pairings)}</div>
       </div>
