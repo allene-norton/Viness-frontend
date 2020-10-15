@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
 
 class CommentsDisplay extends Component {
+    renderComments = () => {
+        if (this.props.comments.length >= 1) {
+            return this.props.comments.map(comment => <li key={comment.id}>{comment.body}</li>)
+        } else {return undefined}
+    }
 
     render() {
         return (
             <div className='comments-form'>
                 <h3>I'm the comments container</h3>
+                <ul>
+                    {this.renderComments()}
+                </ul>
             </div>
         )
     }

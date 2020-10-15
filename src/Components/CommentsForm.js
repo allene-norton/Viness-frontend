@@ -15,13 +15,15 @@ class CommentsForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.postComment(this.state)
+        this.props.handlePost(this.state)
+        document.getElementById("comment-form").reset()
     }
 
     render() {
         return (
             <div className='comments-form'>
                 <h3>I'm the comments form</h3>
-                <form onSubmit={(e) => this.handleSubmit(e)}>
+                <form id='comment-form' onSubmit={(e) => this.handleSubmit(e)}>
                     <input onChange={(e) => this.handleChange(e)} type='text' placeholder='add a comment' />
                     <input type='submit' />
                 </form>
