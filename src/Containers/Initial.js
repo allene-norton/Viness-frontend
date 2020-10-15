@@ -28,7 +28,7 @@ class Initial extends Component {
         this.state = {
             isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
             users: [],
-            saved: JSON.parse(sessionStorage.getItem('saved')),
+            saved: [],
             currentUser: JSON.parse(sessionStorage.getItem('user')),
             recSearchTxt: '',
             recWines: {},
@@ -46,6 +46,7 @@ class Initial extends Component {
             this.setState({
                 users: data
             })
+            this.getUserWines()
         })
     }
 
@@ -67,11 +68,11 @@ class Initial extends Component {
     setCurrentUser = (obj) => {
         sessionStorage.setItem('isLoggedIn', true)
         sessionStorage.setItem('user', JSON.stringify(obj))
-        sessionStorage.setItem('saved', JSON.stringify(obj.wines))
+        // sessionStorage.setItem('saved', JSON.stringify(obj.wines))
         this.setState({
             isLoggedIn: JSON.parse(sessionStorage.getItem('isLoggedIn')),
-            currentUser: JSON.parse(sessionStorage.getItem('user')),
-            saved: JSON.parse(sessionStorage.getItem('saved'))
+            currentUser: JSON.parse(sessionStorage.getItem('user')) //,
+            // saved: JSON.parse(sessionStorage.getItem('saved'))
         })
         console.log(this.state.isLoggedIn, this.state.currentUser)
     }
@@ -152,8 +153,19 @@ class Initial extends Component {
             headers: myHeaders,
             body: JSON.stringify(comment)
         })
-        .then(res => res.json())
-        .then(data => console.log(data))
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
+
+    getUserWines = () => {
+        if (this.state.currentUser !== null)
+        {return fetch('http://localhost:3000/saved', {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify({ user_id: this.state.currentUser.id })
+        })
+            .then(res => res.json())
+            .then(data => this.setState({ saved: data }))}
     }
 
     renderLoginOrHome = () => {

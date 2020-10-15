@@ -11,7 +11,7 @@ class Logout extends Component {
         alert('Logout made sucessfully!')
         sessionStorage.setItem('isLoggedIn', false)
         sessionStorage.setItem('user', null)
-        sessionStorage.setItem('saved', null)
+        // sessionStorage.setItem('saved', null)
         window.location.href = '/'
     }
 
