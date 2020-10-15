@@ -158,7 +158,10 @@ class Initial extends Component {
             body: JSON.stringify(comment)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                this.getUserWines()
+            })
     }
 
     getUserWines = () => {
