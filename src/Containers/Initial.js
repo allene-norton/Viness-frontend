@@ -43,10 +43,10 @@ class Initial extends Component {
 
     getUsers = () => {
         return fetch(usersAPI).then(res => res.json()).then(data => {
+            console.log(data)
             this.setState({
                 users: data
             })
-            this.getUserWines()
         })
     }
 
@@ -62,6 +62,7 @@ class Initial extends Component {
             .then(res => res.json())
             .then(data => {
                 this.setCurrentUser(data)
+                this.getUserWines(data)
             })
     }
 
@@ -157,12 +158,12 @@ class Initial extends Component {
             .then(data => console.log(data))
     }
 
-    getUserWines = () => {
+    getUserWines = (user) => {
         if (this.state.currentUser !== null)
         {return fetch('http://localhost:3000/saved', {
             method: 'POST',
             headers: myHeaders,
-            body: JSON.stringify({ user_id: this.state.currentUser.id })
+            body: JSON.stringify({ user_id: user.id })
         })
             .then(res => res.json())
             .then(data => this.setState({ saved: data }))}
