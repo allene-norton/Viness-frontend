@@ -63,7 +63,11 @@ class Initial extends Component {
             .then(res => res.json())
             .then(data => {
                 this.setCurrentUser(data)
+<<<<<<< HEAD
                 this.getUserWines(data)
+=======
+                this.getUserWines()
+>>>>>>> add_comments
             })
     }
 
