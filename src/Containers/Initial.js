@@ -62,6 +62,7 @@ class Initial extends Component {
             .then(res => res.json())
             .then(data => {
                 this.setCurrentUser(data)
+                this.getUserWines()
             })
     }
 
