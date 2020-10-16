@@ -8,7 +8,7 @@ class Recipe extends Component {
         return (
             <div className="food-results">
                 <div className="paired-foods">
-                   <a href={recipe.link} target='_blank' ><h3>{recipe.name}</h3></a>
+                   <a href={recipe.link} target='_blank' rel="noopener noreferrer"><h3>{recipe.name}</h3></a>
                    <img src={recipe.image} alt={recipe.name} />
                 </div>
             </div>

@@ -153,6 +153,10 @@ class Initial extends Component {
         this.setState({ pairedRecipes: [] })
     }
 
+    clearRecs = () => {
+        this.setState({ recWines: [] })
+    }
+
     postWine = (wine) => {
         console.log(wine)
         return fetch(postWines, {
@@ -226,8 +230,6 @@ class Initial extends Component {
                 </div>
             )
         } else if (this.state.isLoggedIn) {
-            let keyCount = 0
-            keyCount++
             return <Router>
                 <NavBar />
                 <Redirect to='/home' />
@@ -238,6 +240,7 @@ class Initial extends Component {
                             getWineRec={this.getWineRec}
                             wines={this.state.recWines}
                             postWine={this.postWine}
+                            key={Date.now()}
                         />
                     </Route>
                     <Route exact path="/wine_pairing">
@@ -262,7 +265,6 @@ class Initial extends Component {
                             saved={this.state.saved}
                             postComment={this.postComment}
                             deleteWine={this.deleteWine}
-                            key={keyCount}
                         />
                     </Route>
                 </Switch>

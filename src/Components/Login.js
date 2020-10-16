@@ -26,7 +26,7 @@ function Login(props) {
             buttonText="Login"
             onSuccess={onSuccess}
             onFailure={onFailure}
-            isSignedIn={true}
+            // isSignedIn={true}
             cookiePolicy={'single_host_origin'}
             style={{ marginTop: '100px'}}
             />
