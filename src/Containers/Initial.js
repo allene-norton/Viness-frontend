@@ -233,7 +233,6 @@ class Initial extends Component {
             return <Router>
                 <NavBar />
                 <Redirect to='/home' />
-                {/* {this.getSavedWines()} */}
                 <Switch>
                     <Route exact path="/recommendations">
                         <WineRec
@@ -258,7 +257,6 @@ class Initial extends Component {
                             clearRecipes={this.clearRecipes}
                         />
                     </Route>
-                    {/* <Redirect to='/home' /> */}
                     <Route exact path="/home">
                         <Home
                             currentUser={this.state.currentUser}
