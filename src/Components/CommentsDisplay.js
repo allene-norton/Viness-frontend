@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import Comment from './Comment'
 
 class CommentsDisplay extends Component {
     renderComments = () => {
         if (this.props.comments.length >= 1) {
-        return this.props.comments.map(comment => <li key={comment.id}>user: {comment.username} <br/> comment: {comment.body}</li>)
+        return this.props.comments.map(comment => <Comment key={comment.id} comment={comment} />)
         } else {return undefined}
     }
 
