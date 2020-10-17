@@ -221,7 +221,11 @@ class Initial extends Component {
             return (
                 <div className="App">
                     <Router>
-                        <Landing />
+                        <Landing 
+                        postUser={this.postUser}
+                        setCurrentUser={this.setCurrentUser}
+                        users={this.state.users}
+                        />
                         {/* <Login
                             postUser={this.postUser}
                             setCurrentUser={this.setCurrentUser}

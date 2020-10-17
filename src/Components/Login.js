@@ -29,6 +29,11 @@ function Login(props) {
             // isSignedIn={true}
             cookiePolicy={'single_host_origin'}
             style={{ marginTop: '100px'}}
+            render={renderProps => (
+                <button onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                    sign in with google
+                </button>
+            )}
             />
         </div>
     )

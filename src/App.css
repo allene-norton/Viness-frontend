@@ -1,9 +1,21 @@
+@font-face {
+  font-family: 'Alte-Haas-Grotesk';
+  src:url('./fonts/Alte-Haas-Grotesk.ttf.woff') format('woff'),
+      url('./fonts/Alte-Haas-Grotesk.ttf.svg#Alte-Haas-Grotesk') format('svg'),
+      url('./fonts/Alte-Haas-Grotesk.ttf.eot'),
+      url('./fonts/Alte-Haas-Grotesk.ttf.eot?#iefix') format('embedded-opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 .App {
   text-align: center;
 }
 
 body {
-  overflow: hidden; /* Hide scrollbars */
+  font-family: 'Alte-Haas-Grotesk';
 }
 
 .video-container {
@@ -11,11 +23,13 @@ body {
   width: 500px;
   overflow: hidden;
   position: relative;
+  overflow: hidden; /* Hide scrollbars */
 }
 
 video {
 min-width: 100%;
 min-height: 100%;
+overflow: hidden; /* Hide scrollbars */
 object-fit: cover;
 position: absolute;
 top: 50%;
@@ -30,6 +44,7 @@ filter: blur(1px); */
   height: 100%;
   width: 100%;
   position: absolute;
+  overflow: hidden; /* Hide scrollbars */
   top: 0px;
   left: 0px;
   z-index: -1;
@@ -46,3 +61,52 @@ filter: blur(1px); */
   /* background-color: rgb(233, 232, 180); */
   justify-content: left;
 }
+
+.login {
+  position:absolute;
+  top:10px;
+  right: 10px;
+}
+
+.about {
+  position:absolute;
+  top:10px;
+  left: 15px;
+  /* margin:0px;
+  padding:0px; */
+}
+
+
+.login button {
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0;
+  text-decoration: none;
+  background: none;
+  color: #252525;
+  outline: none;
+  font-family: 'Alte-Haas-Grotesk';
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.login button:hover,
+button:focus {
+  transform: scale(0.99);
+}
+/* 
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+} */
+
+.login button:active {
+  transform: scale(0.99);
+}
+
