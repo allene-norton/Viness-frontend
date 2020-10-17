@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import NavBar from './NavBar'
 import Home from './Home'
+import Landing from './Landing'
 import WineRec from './WineRec'
 import WinePair from './WinePair'
 import FoodPair from './FoodPair'
@@ -220,12 +221,13 @@ class Initial extends Component {
             return (
                 <div className="App">
                     <Router>
-                        <Login
+                        <Landing />
+                        {/* <Login
                             postUser={this.postUser}
                             setCurrentUser={this.setCurrentUser}
                             users={this.state.users}
-                        />
-                        <Logout setLogout={this.setLogout} />
+                        /> */}
+                        {/* <Logout setLogout={this.setLogout} /> */}
                     </Router>
                 </div>
             )
