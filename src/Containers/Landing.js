@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
+import AboutModal from '../Components/AboutModal'
 import vid from '../images/wine_seq2.mp4'
 import vlogo from '../images/vlogo.png'
 import Login from '../Components/Login'
 
 class Landing extends Component {
+    state = {
+        modal: false
+    }
 
+    selectModal = (info) => {
+        this.setState({ modal: !this.state.modal }) // true/false toggle
+    }
 
     render() {
         return (
@@ -16,14 +23,18 @@ class Landing extends Component {
                         {/* <source src="http://inserthtml.com/demos/javascript/background-videos/flowers.webm" type="video/webm" /> */}
                     </video>
                     <div className='login'>
-                    <Login
+                        <Login
                             postUser={this.props.postUser}
                             setCurrentUser={this.props.setCurrentUser}
                             users={this.props.users}
                         />
                     </div>
                     <div className='about'>
-                        <p>about</p>
+                        <button onClick={this.selectModal}>about</button>
+                        <AboutModal
+                            displayModal={this.state.modal}
+                            closeModal={this.selectModal}
+                        />
                     </div>
                     <div className='logo'>
                         <img src={vlogo} alt='logo' />
