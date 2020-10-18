@@ -31,7 +31,7 @@
 
 body {
   font-family: 'Alte-Haas-Grotesk';
-  /* background:rgb(238,236,192); */
+  background:rgb(238,236,192);
 }
 
 .landing {
@@ -716,6 +716,7 @@ button:focus {
   text-align: center;
   width: 200px;
   height: 400px;
+  font-family: 'EBGaramond-SemiBold';
 }
 
 .card > hr {
@@ -927,5 +928,10 @@ button:focus {
     display: inline-block;
     width: 100%;
   }
+}
+.profile {
+  text-align: left;
+  padding-bottom: 10%;
+  padding-left: 5%;
 }
 
