@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
-import SavedWines from '../Components/SavedWines'
+import SavedSlider from './SavedSlider'
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 class SavedContainer extends Component {
 
-  renderSavedWines = () => {
-    return this.props.saved.map(wine => <SavedWines key={wine.id} wine={wine} postComment={this.props.postComment} deleteWine={this.props.deleteWine} />)
-  }
   render() {
     return (
-      <div className="home">
-        <div className='saved-wines'>
-          <h3>My saved wines:</h3>
-          {console.log(this.props.saved)}
-          {this.props.saved !== null && this.props.saved.length >= 1  ? this.renderSavedWines() : <p>You don't have any saved wines yet.</p>}
-        </div>
+      <div className='saved-wines'>
+        <SavedSlider
+          saved={this.props.saved}
+          postComment={this.props.postComment}
+          deleteWine={this.props.deleteWine}
+        />
       </div>
     );
   }
