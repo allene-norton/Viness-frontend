@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Logout from '../Components/Logout'
+// import Logout from '../Components/Logout'
 import SavedContainer from './SavedContainer'
 class Home extends Component {
 
@@ -14,9 +14,9 @@ class Home extends Component {
         <div className='saved-wines'>
           <SavedContainer postComment={this.props.postComment} saved={this.props.saved} deleteWine={this.props.deleteWine} />
         </div>
-        <div>
+        {/* <div>
           <Logout />
-        </div>
+        </div> */}
       </div>
     );
   }

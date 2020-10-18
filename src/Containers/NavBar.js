@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Logout from '../Components/Logout'
 
 export default class NavBar extends Component {
     render() {
@@ -21,6 +22,7 @@ export default class NavBar extends Component {
                         <li name='recommendations'><Link to="/recommendations" ><button>Get Recommendation</button></Link></li>
                         <li name='recommendations'><Link to="/wine_pairing" ><button>Get Wine Pairing</button></Link></li>
                         <li name='recommendations'><Link to="/food_pairing" ><button>Get Food Pairing</button></Link></li>
+                        <li name='recommendations'><Logout /></li>
                         </ul>
                     </div>
                     {/* <ul className='menuItems'>

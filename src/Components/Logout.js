@@ -4,7 +4,7 @@ import { GoogleLogout } from 'react-google-login'
 const client_id = '278233718971-h98g350r0u4bcu0at4blpjmaf42crgiv.apps.googleusercontent.com'
 
 class Logout extends Component {
-  
+
     onSuccess = () => {
         alert('Logout made sucessfully!')
         sessionStorage.setItem('isLoggedIn', false)
@@ -17,10 +17,10 @@ class Logout extends Component {
         console.log('logout failed')
     }
 
-    
+
 
     render() {
-       
+
         return (
             <div>
                 <GoogleLogout
@@ -28,6 +28,11 @@ class Logout extends Component {
                     buttonText="Logout"
                     onLogoutSuccess={this.onSuccess}
                     onFailure={this.onFailure}
+                    render={renderProps => (
+                        <button onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                            sign out
+                        </button>
+                    )}
                 ></GoogleLogout>
             </div>
         )
