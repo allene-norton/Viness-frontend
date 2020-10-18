@@ -31,6 +31,7 @@
 
 body {
   font-family: 'Alte-Haas-Grotesk';
+  /* background:rgb(238,236,192); */
 }
 
 .landing {
@@ -67,7 +68,7 @@ filter: blur(3px);
   top: 0px;
   left: 0px;
   z-index: -1;
-  background: rgb(209, 206, 8);
+  background: rgb(255, 255, 255);
   opacity: 0.2;
 }
 
@@ -152,7 +153,7 @@ button:focus {
 /* Modal content */
 .modal-content {
   text-align: left;
-  background-color: rgb(238,236,192);
+  background-color: rgb(255, 255, 255);
   width: 90%; /* Width in proportion to its parent container*/
   max-width: 640px; /* Max width where it stops expanding */
   height: 50%; /* Height in proportion to its parent container */
@@ -163,6 +164,7 @@ button:focus {
   opacity: 0.95;
   font-size: 1.4rem;
   border-radius: 5px;
+  color: rgb(63, 63, 63);
 }
 /* Close button */
 .close {
