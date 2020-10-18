@@ -19,7 +19,7 @@ const API_KEY = process.env.REACT_APP_SPOON_API_KEY;
 
 const myHeaders = { "Content-Type": "application/json", "Accepts": "application/json" }
 
-const wineRecAPI = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/recommendation?maxPrice=50&minRating=0.7&number=10&wine='
+const wineRecAPI = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/recommendation?maxPrice='
 const winePairAPI = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/pairing?maxPrice=50&food='
 const foodPairAPI = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/dishes?wine="
 const recipeAPI = "https://rapidapi.p.rapidapi.com/food/site/search?query="
@@ -83,9 +83,8 @@ class Initial extends Component {
         console.log(this.state.isLoggedIn, this.state.currentUser)
     }
 
-
-    getWineRec = (query) => {
-        return fetch(wineRecAPI + query, {
+    getWineRec = (query, maxPrice, minRating) => {
+        return fetch(`${wineRecAPI}${maxPrice}&minRating=${minRating}&number=10&wine=${query}`, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
