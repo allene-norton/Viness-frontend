@@ -8,7 +8,11 @@ export default class SimpleSlider extends Component {
             return this.props.saved.map(wine => <CustomSlide key={wine.id} wine={wine} postComment={this.props.postComment} deleteWine={this.props.deleteWine} />)
         }
         const settings = {
-            dots: true,
+            className: "center",
+            centerMode: true,
+            infinite: true,
+            centerPadding: "240px",
+            dots: false,
             infinite: true,
             speed: 500,
             slidesToShow: 3,
@@ -16,8 +20,6 @@ export default class SimpleSlider extends Component {
         };
         return (
             <div>
-                <h2>Custom Slides</h2>
-
                 <Slider {...settings}>
                     {this.props.saved !== null && this.props.saved.length >= 1 ? renderSavedWines() : <p>You don't have any saved wines yet.</p>}
                 </Slider>
