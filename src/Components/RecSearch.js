@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 class RecSearch extends Component {
     state = {
-        searchTxt: ''
+        searchTxt: '',
+        minRating: 0.0,
+        maxPrice: 0
     }
 
     handleSubmit = (e) => {

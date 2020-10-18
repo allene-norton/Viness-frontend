@@ -4,7 +4,7 @@ import Comment from './Comment'
 class CommentsDisplay extends Component {
     renderComments = () => {
         if (this.props.comments.length >= 1) {
-        return this.props.comments.map(comment => <Comment key={comment.id} comment={comment} />)
+        return this.props.comments.map(comment => <Comment key={comment.id} comment={comment} deleteComment={this.props.deleteComment} />)
         } else {return undefined}
     }
 
