@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 class RecResults extends Component {
@@ -8,6 +8,7 @@ class RecResults extends Component {
         let userId = JSON.parse(sessionStorage.getItem('user')).id
         this.props.postWine({...this.props.wine, user_id: userId})
         alert('Your wine has been saved to your profile!')
+        // return <Link to='/home' />
     }
 
     render() {
@@ -21,7 +22,7 @@ class RecResults extends Component {
                 <img src={wine.imageUrl} alt={wine.title} />
                 <h3>{wine.description}</h3>
                 <h3>{wine.price}</h3>
-                <button onClick={this.handleClick} >Save Wine</button>
+                <Link to='/home'><button onClick={this.handleClick} >Save Wine</button></Link>
             </div>
         );
     }
