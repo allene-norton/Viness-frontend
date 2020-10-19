@@ -15,7 +15,7 @@ class Home extends Component {
             <img src={user.image} alt={user.display_name} />
           </div>
         </div> */}
-        <div className='saved-wines'>
+        <div className='saved'>
           <SavedContainer
             postComment={this.props.postComment} 
             saved={this.props.saved} 

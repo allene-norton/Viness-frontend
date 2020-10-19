@@ -1,36 +1,30 @@
 import React, { Component } from "react";
-import Slider from "react-slick";
-import CustomSlide from '../Components/SavedSlide'
+import { Item, Grid } from 'semantic-ui-react'
+import Wine from '../Components/SavedSlide'
+import 'semantic-ui-css/semantic.min.css'
+
 
 export default class SimpleSlider extends Component {
     render() {
         const renderSavedWines = () => {
-            return this.props.saved.map(wine => <CustomSlide key={wine.id} wine={wine} postComment={this.props.postComment} deleteWine={this.props.deleteWine} setWineInfo={this.props.setWineInfo}/>)
+            return this.props.saved.map(wine => <Wine key={wine.id} wine={wine} postComment={this.props.postComment} deleteWine={this.props.deleteWine} setWineInfo={this.props.setWineInfo} />)
         }
-        const settings = {
-            className: "center",
-            centerMode: true,
-            infinite: true,
-            centerPadding: "240px",
-            dots: false,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 3,
-            slidesToScroll: 1
-        };
-        if (this.props.saved !== null && this.props.saved.length >= 1){
+
+        if (this.props.saved !== null && this.props.saved.length >= 1) {
             return (
                 <div>
-                    <Slider {...settings}>
-                        {renderSavedWines()}
-                    </Slider>
+                    {/* <Grid container centered stackable columns={4} > */}
+                        {/* <Item.Group> */}
+                            {renderSavedWines()}
+                        {/* </Item.Group> */}
+                    {/* </Grid> */}
                 </div>
             );
-        } else{
+        } else {
             return (
                 <div>
-                {/* <p style={{fontSize: '3rem'}}>You don't have any saved wines.</p> */}
-                <p style={{fontSize: '3rem'}}>Get started by getting a recommendation or wine pairing!</p>
+                    {/* <p style={{fontSize: '3rem'}}>You don't have any saved wines.</p> */}
+                    <p style={{ fontSize: '3rem', paddingTop:'300px'}}>Get started by getting a recommendation or wine pairing!</p>
                 </div>
             )
         }
