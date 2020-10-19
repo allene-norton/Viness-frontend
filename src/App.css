@@ -22,15 +22,7 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Work-Sans-Regular';
-  src:url('./fonts/Work-Sans-Regular.ttf.woff') format('woff'),
-      url('./fonts/Work-Sans-Regular.ttf.svg#Work-Sans-Regular') format('svg'),
-      url('./fonts/Work-Sans-Regular.ttf.eot'),
-      url('./fonts/Work-Sans-Regular.ttf.eot?#iefix') format('embedded-opentype'); 
-  font-weight: normal;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap');
 
 
 
@@ -41,7 +33,7 @@
 }
 
 body {
-  font-family: 'Work-Sans-Regular';
+  font-family: 'Josefin Sans', sans-serif;;
   background: #fff;
 }
 
@@ -154,8 +146,8 @@ button:focus {
   background: none;
   color: #252525;
   outline: none;
-  font-family: 'Work-Sans-Regular';
-  font-size: 1rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.2rem;
   cursor: pointer;
   text-align: center;
   transition: background 250ms ease-in-out, 
@@ -187,7 +179,7 @@ button:focus {
   left: 0;
   overflow: auto; /* Enable scroll if needed */
   padding-top: 80px; /* Location of the content container */
-  font-family: 'Work-Sans-Regular';
+  font-family: 'Josefin Sans', sans-serif;
 }
 /* Modal content */
 .modal-content {
@@ -373,7 +365,7 @@ button:focus {
   background: none;
   color: #252525;
   outline: none;
-  font-family: 'Work-Sans-Regular';
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 1.2rem;
   cursor: pointer;
   text-align: center;
@@ -755,7 +747,7 @@ button:focus {
   text-align: center;
   width: 200px;
   height: 400px;
-  font-family: 'Work-Sans-Regular';
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .card > hr {
@@ -789,6 +781,7 @@ button:focus {
 
 .card-title {
   margin-bottom: 0.75rem;
+  font-size: 1.4rem;
 }
 
 .card-subtitle {
@@ -862,7 +855,7 @@ button:focus {
   justify-content: center;
   /* -ms-flex-negative: 0;
   flex-shrink: 0; */
-  width: 25%;
+  width: 18%;
   padding-left: 105px;
   padding-bottom: 20px;
 }

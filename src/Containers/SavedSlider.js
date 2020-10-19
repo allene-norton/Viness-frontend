@@ -18,12 +18,28 @@ export default class SimpleSlider extends Component {
             slidesToShow: 3,
             slidesToScroll: 1
         };
-        return (
-            <div>
-                <Slider {...settings}>
-                    {this.props.saved !== null && this.props.saved.length >= 1 ? renderSavedWines() : <p>You don't have any saved wines yet.</p>}
-                </Slider>
-            </div>
-        );
+        if (this.props.saved !== null && this.props.saved.length >= 1){
+            return (
+                <div>
+                    <Slider {...settings}>
+                        {renderSavedWines()}
+                    </Slider>
+                </div>
+            );
+        } else{
+            return (
+                <div>
+                {/* <p style={{fontSize: '3rem'}}>You don't have any saved wines.</p> */}
+                <p style={{fontSize: '3rem'}}>Get started by getting a recommendation or wine pairing!</p>
+                </div>
+            )
+        }
+        // return (
+        //     <div>
+        //         <Slider {...settings}>
+        //             {this.props.saved !== null && this.props.saved.length >= 1 ? renderSavedWines() : <p>You don't have any saved wines yet.</p>}
+        //         </Slider>
+        //     </div>
+        // );
     }
 }
