@@ -9,12 +9,12 @@ class Home extends Component {
     return (
       <div className="home">
         {/* <h2>Viness Home Page</h2> */}
-        <div className='profile'>
+        {/* <div className='profile'>
           <div className='profile-info'>
             <h3>{user.display_name}</h3>
             <img src={user.image} alt={user.display_name} />
           </div>
-        </div>
+        </div> */}
         <div className='saved-wines'>
           <SavedContainer
             postComment={this.props.postComment} 

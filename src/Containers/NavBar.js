@@ -4,6 +4,7 @@ import Logout from '../Components/Logout'
 
 export default class NavBar extends Component {
     render() {
+        let user = this.props.currentUser
         return (
             <div className="viness-menu">
                 <nav role="navigation">
@@ -18,6 +19,8 @@ export default class NavBar extends Component {
 
 
                         <ul id="menu">
+                            <li>{user.display_name}</li>
+                            <li><img src={user.image} alt={user.display_name} /></li>
                         <li name='home'><Link to="/home" ><button>Home</button></Link></li>
                         <li name='recommendations'><Link to="/recommendations" ><button>Get Recommendation</button></Link></li>
                         <li name='recommendations'><Link to="/wine_pairing" ><button>Get Wine Pairing</button></Link></li>
