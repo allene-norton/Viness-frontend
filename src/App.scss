@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Alte-Haas-Grotesk';
+  src:url('./fonts/Alte-Haas-Grotesk.ttf.woff') format('woff'),
+      url('./fonts/Alte-Haas-Grotesk.ttf.svg#Alte-Haas-Grotesk') format('svg'),
+      url('./fonts/Alte-Haas-Grotesk.ttf.eot'),
+      url('./fonts/Alte-Haas-Grotesk.ttf.eot?#iefix') format('embedded-opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EBGaramond-SemiBold';
+  src:url('./fonts/EBGaramond-SemiBold.woff') format('woff'),
+      url('./fonts/EBGaramond-SemiBold.woff2') format('woff2'),
+      url('./fonts/EBGaramond-SemiBold.svg#EBGaramond-SemiBold') format('svg'),
+      url('./fonts/EBGaramond-SemiBold.eot'),
+      url('./fonts/EBGaramond-SemiBold.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/EBGaramond-SemiBold.ttf') format('truetype');
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+$card-border-width: 0;
+$navbar-light-color: #fff;
+/* === Import Bootstrap functions and variables === */
+
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+/* === Boostrap Main SCSS === */
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import './custom.scss'
+
+
+
+
+
+
