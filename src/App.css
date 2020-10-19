@@ -22,6 +22,17 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Work-Sans-Regular';
+  src:url('./fonts/Work-Sans-Regular.ttf.woff') format('woff'),
+      url('./fonts/Work-Sans-Regular.ttf.svg#Work-Sans-Regular') format('svg'),
+      url('./fonts/Work-Sans-Regular.ttf.eot'),
+      url('./fonts/Work-Sans-Regular.ttf.eot?#iefix') format('embedded-opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 
 
 
@@ -30,8 +41,8 @@
 }
 
 body {
-  font-family: 'Alte-Haas-Grotesk';
-  background:rgb(238,236,192);
+  font-family: 'Work-Sans-Regular';
+  background: #fff;
 }
 
 .landing {
@@ -134,6 +145,34 @@ button:focus {
   transform: scale(0.99);
 }
 
+.card button {
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0;
+  text-decoration: none;
+  background: none;
+  color: #252525;
+  outline: none;
+  font-family: 'Work-Sans-Regular';
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.card button:hover,
+button:focus {
+  transform: scale(0.99);
+}
+
+.card button:active {
+  transform: scale(0.99);
+}
+
 
 /* MODAL */
 /* Background effect. It covers the entire site */
@@ -148,7 +187,7 @@ button:focus {
   left: 0;
   overflow: auto; /* Enable scroll if needed */
   padding-top: 80px; /* Location of the content container */
-  font-family: 'EBGaramond-SemiBold';
+  font-family: 'Work-Sans-Regular';
 }
 /* Modal content */
 .modal-content {
@@ -334,7 +373,7 @@ button:focus {
   background: none;
   color: #252525;
   outline: none;
-  font-family: 'EBGaramond-SemiBold';
+  font-family: 'Work-Sans-Regular';
   font-size: 1.2rem;
   cursor: pointer;
   text-align: center;
@@ -716,7 +755,7 @@ button:focus {
   text-align: center;
   width: 200px;
   height: 400px;
-  font-family: 'EBGaramond-SemiBold';
+  font-family: 'Work-Sans-Regular';
 }
 
 .card > hr {

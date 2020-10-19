@@ -5,6 +5,9 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default class CustomSlide extends Component {
+    handleDelete = () => {
+        this.props.deleteWine(this.props.wine.id)
+    }
     render() {
         // const { index, ...props } = this.props;
         let wine = this.props.wine
@@ -25,8 +28,8 @@ export default class CustomSlide extends Component {
                         <ListGroupItem>Vestibulum at eros</ListGroupItem>
                     </ListGroup> */}
                     <Card.Footer>
-                        <Card.Link href="#">Card Link</Card.Link>
-                        <Card.Link href="#">Another Link</Card.Link>
+                        <Card.Link href="#"><button onClick={this.handleDelete}>remove</button></Card.Link>
+                        <Card.Link href="#"><button>info</button></Card.Link>
                     </Card.Footer>
                 </Card>
             </div>
