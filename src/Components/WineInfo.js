@@ -8,7 +8,7 @@ class WineInfo extends Component {
     }
 
     render() {
-        let wine = this.props.wine
+        let wine = JSON.parse(sessionStorage.getItem('wineInfo'))
         console.log(wine.title)
         return (
             <div className="wine-info">
@@ -19,8 +19,8 @@ class WineInfo extends Component {
                 <h3>{wine.price}</h3>
                 <h3>Rating: {wine.averageRating}</h3>
                 <h4>Comments:</h4>
-                <CommentsContainer wine={this.props.wine} postComment={this.props.postComment} />
-                <button onClick={this.handleDelete} >Delete Wine</button>
+                <CommentsContainer wine={wine} postComment={this.props.postComment} />
+                <button>Delete Wine</button>
             </div>
         );
     }

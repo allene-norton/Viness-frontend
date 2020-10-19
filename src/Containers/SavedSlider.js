@@ -5,7 +5,7 @@ import CustomSlide from '../Components/SavedSlide'
 export default class SimpleSlider extends Component {
     render() {
         const renderSavedWines = () => {
-            return this.props.saved.map(wine => <CustomSlide key={wine.id} wine={wine} postComment={this.props.postComment} deleteWine={this.props.deleteWine} />)
+            return this.props.saved.map(wine => <CustomSlide key={wine.id} wine={wine} postComment={this.props.postComment} deleteWine={this.props.deleteWine} setWineInfo={this.props.setWineInfo}/>)
         }
         const settings = {
             className: "center",

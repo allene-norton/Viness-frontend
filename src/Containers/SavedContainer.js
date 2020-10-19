@@ -12,6 +12,7 @@ class SavedContainer extends Component {
           saved={this.props.saved}
           postComment={this.props.postComment}
           deleteWine={this.props.deleteWine}
+          setWineInfo={this.props.setWineInfo}
         />
       </div>
     );

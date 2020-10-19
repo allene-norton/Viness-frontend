@@ -8,6 +8,7 @@ import WinePair from './WinePair'
 import FoodPair from './FoodPair'
 import Login from '../Components/Login'
 import Logout from '../Components/Logout'
+import WineInfo from '../Components/WineInfo';
 
 const usersAPI = 'http://localhost:3000/users'
 const commentsAPI = 'http://localhost:3000/comments'
@@ -38,7 +39,8 @@ class Initial extends Component {
             winePairing: {},
             foodPairing: {},
             pairedFoods: [],
-            pairedRecipes: []
+            pairedRecipes: [],
+            wineInfo: {}
         }
     }
 
@@ -157,6 +159,12 @@ class Initial extends Component {
         this.setState({ recWines: [] })
     }
 
+    setWineInfo = (wine) => {
+        this.setState({wineInfo: wine})
+        sessionStorage.setItem('wineInfo', JSON.stringify(wine))
+        console.log(this.state.wineInfo)
+    }
+
     postWine = (wine) => {
         console.log(wine)
         return fetch(postWines, {
@@ -237,7 +245,7 @@ class Initial extends Component {
         } else if (this.state.isLoggedIn) {
             return <Router>
                 <NavBar />
-                <Redirect to='/home' />
+                {/* <Redirect to='/home' /> */}
                 <Switch>
                     <Route exact path="/recommendations">
                         <WineRec
@@ -268,6 +276,14 @@ class Initial extends Component {
                             saved={this.state.saved}
                             postComment={this.postComment}
                             deleteWine={this.deleteWine}
+                            setWineInfo={this.setWineInfo}
+                        />
+                    </Route>
+                    <Route exact path="/wine_info">
+                        <WineInfo
+                            currentUser={this.state.currentUser}
+                            postComment={this.postComment}
+                            wine={this.state.wineInfo}
                         />
                     </Route>
                 </Switch>

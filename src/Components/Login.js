@@ -1,6 +1,6 @@
 import React from 'react'
 import { GoogleLogin } from 'react-google-login'
-// import {  Redirect } from 'react-router-dom'
+// import {  BrowserRouter as Router, Redirect } from 'react-router-dom'
 
 
 const clientId = '278233718971-h98g350r0u4bcu0at4blpjmaf42crgiv.apps.googleusercontent.com'
@@ -12,6 +12,9 @@ function Login(props) {
         // let data = res.profileObj
         // let user = props.users.filter(user => user.uid === data.googleId)[0]
         props.postUser(token)
+        // return <Router>
+        //     <Redirect to='/home' />
+        //     </Router>
         // props.setCurrentUser({...data, user_id: user.id, wines: user.wines})
     }
 

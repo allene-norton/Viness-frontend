@@ -16,7 +16,12 @@ class Home extends Component {
           </div>
         </div>
         <div className='saved-wines'>
-          <SavedContainer postComment={this.props.postComment} saved={this.props.saved} deleteWine={this.props.deleteWine} />
+          <SavedContainer
+            postComment={this.props.postComment} 
+            saved={this.props.saved} 
+            deleteWine={this.props.deleteWine}
+            setWineInfo={this.props.setWineInfo} 
+            />
         </div>
         {/* <div>
           <Logout />

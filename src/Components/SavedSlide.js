@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import ListGroupItem from 'react-bootstrap/ListGroupItem';
+import { Link } from 'react-router-dom'
+
+// import ListGroup from 'react-bootstrap/ListGroup';
+// import ListGroupItem from 'react-bootstrap/ListGroupItem';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default class CustomSlide extends Component {
     handleDelete = () => {
         this.props.deleteWine(this.props.wine.id)
+    }
+
+    handleClick = () => {
+        this.props.setWineInfo(this.props.wine)
     }
     render() {
         // const { index, ...props } = this.props;
@@ -29,7 +35,7 @@ export default class CustomSlide extends Component {
                     </ListGroup> */}
                     <Card.Footer>
                         <Card.Link href="#"><button onClick={this.handleDelete}>remove</button></Card.Link>
-                        <Card.Link href="#"><button>info</button></Card.Link>
+                        <Link to="/wine_info"><button onClick={this.handleClick}>info</button></Link>
                     </Card.Footer>
                 </Card>
             </div>
