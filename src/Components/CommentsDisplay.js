@@ -14,7 +14,7 @@ class CommentsDisplay extends Component {
     render() {
         return (
             <div className='comments-display'>
-                <Comment.Group size='medium'>
+                <Comment.Group size='large'>
                     <Header as='h3' dividing>
                         Comments
                     </Header>

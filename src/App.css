@@ -36,7 +36,7 @@
 body {
   font-family: 'Josefin Sans', sans-serif !important;
   background: #fff;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .landing {
@@ -429,4 +429,8 @@ h1, h2, h3, h4, h5 p {
 .comments-display {
   padding-top: 50px;
   padding-left: 250px;
+}
+
+.ui.comments {
+  text-align: left;
 }
