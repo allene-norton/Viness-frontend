@@ -14,7 +14,7 @@ class PairResults extends Component {
     // bottles = this.props.winePairing.productMatches
     renderPairs = (pairs) => {
         if (Object.keys(this.props.winePairing).includes('status')) { return undefined }
-        else if (Object.keys(this.props.winePairing).includes('pairedWines')) { return pairs.map(wine => <li>{wine}</li>) }
+        else if (Object.keys(this.props.winePairing).includes('pairedWines')) { return pairs.map(wine => <li><a href={'https://www.google.com/search?q=' + wine} target='_blank' rel="noopener noreferrer">{wine}</a></li>) }
         else { return undefined }
     }
     renderWines = (wines) => {
@@ -27,14 +27,16 @@ class PairResults extends Component {
         render() {
             console.log(this.props.winePairing)
             return (
-                <div className="rec-results">
+                <div className="pair-results">
                     {console.log(this.props.winePairing.pairedWines)}
                     <div className="paired-wines">
                         <ul>
                             {this.renderPairs(this.props.winePairing.pairedWines)}
                         </ul>
                     </div>
+                    <div className='paired-text' >
                     <p>{this.props.winePairing.pairingText}</p>
+                    </div>
                     <div className="paired-bottle">
                         {this.renderWines(this.props.winePairing.productMatches)}
                     </div>

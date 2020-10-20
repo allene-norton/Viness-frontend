@@ -6,12 +6,10 @@ class Recipe extends Component {
         console.log(this.props.recipe)
         let recipe = this.props.recipe
         return (
-            <div className="food-results">
-                <div className="paired-foods">
+                <div className="recipe">
                    <a href={recipe.link} target='_blank' rel="noopener noreferrer"><h3>{recipe.name}</h3></a>
                    <img src={recipe.image} alt={recipe.name} />
                 </div>
-            </div>
         );
     }
 }

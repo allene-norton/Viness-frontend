@@ -310,7 +310,8 @@ button:focus {
   height: 800px !important;
   background-color: #FFF !important;
   position: flex;
-  padding-left: 250px;
+  padding-left: 260px;
+  padding-right: 20px;
   padding-bottom: 30px !important;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -363,4 +364,37 @@ button:focus {
 
 #food-search-form {
   padding-left: 425px;
+}
+
+.pair-results {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.paired-wines {
+  padding-left: 100px;
+}
+
+.pair-results li {
+  font-size: 2rem;
+  padding-right: 100px;
+  display: inline-block;
+}
+
+.paired-text, .paired-bottle {
+  padding-top: 30px;
+}
+
+.paired-text {
+  font-size: 1.5rem;
+}
+
+.food-pair-text {
+  padding-top: 30px;
+  font-size: 1.5rem;
+}
+
+.recipes {
+  padding-top: 30px;
 }

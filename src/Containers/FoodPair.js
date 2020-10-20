@@ -23,8 +23,8 @@ class FoodPair extends Component {
       <div className="food-pair-page">
         <p style={{paddingTop: '50px', fontFamily: 'Josefin Sans', fontSize: '3rem'}}>meal pairing</p>
         <div><FoodSearch getFoodPair={this.props.getFoodPair} clearRecipes={this.props.clearRecipes} /></div>
-        <div>{this.renderText(this.props.foodPairing.text)}</div>
-        <div>{this.renderFoods(this.props.foodPairing.pairings)}</div>
+        <div className='food-pair-text'>{this.renderText(this.props.foodPairing.text)}</div>
+        <div className='recipes'>{this.renderFoods(this.props.foodPairing.pairings)}</div>
       </div>
     );
   }
