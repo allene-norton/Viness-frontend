@@ -25,8 +25,8 @@ class WineInfo extends Component {
         
         console.log(wine.title)
         return (
-            <div className="wine-info">
-                <h1>{wine.title}</h1>
+            <div className="wine-info" id='wine-info'>
+                <p style={{paddingTop: '50px', fontFamily: 'Josefin Sans', fontSize: '3rem'}}>{wine.title}</p>
                 <img src={wine.imageUrl} alt={wine.title} />
                 <h3>{wine.description}</h3>
                 <h3>{wine.price}</h3>

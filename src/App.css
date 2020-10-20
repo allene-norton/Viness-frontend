@@ -30,6 +30,7 @@
 
 .App {
   text-align: center;
+  font-family: 'Josefin Sans', sans-serif !important;
 }
 
 body {
@@ -410,4 +411,17 @@ button:focus {
 
 .recipe {
   padding: 10px;
+}
+
+.wine-info {
+  font-family: 'Josefin Sans' !important;
+  /* padding-top: 50px; */
+}
+
+#wine-info h1 h2 h3 h4 p {
+  font-family: 'Josefin Sans' !important;
+}
+
+h1, h2, h3, h4, h5 p {
+  font-family: 'Josefin Sans' !important;
 }
