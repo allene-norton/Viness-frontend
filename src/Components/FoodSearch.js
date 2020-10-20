@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Form } from 'semantic-ui-react'
+
 
 class FoodSearch extends Component {
     state = {
@@ -19,10 +21,12 @@ class FoodSearch extends Component {
     render() {
         return (
             <div className="food-search">
-                <form id='food-search-form' onSubmit={(e) => this.handleSubmit(e)}>
-                    <input type='text' placeholder='Enter a varietal' onChange={(e) => this.handleChange(e)}/>
-                    <input type="submit" />
-                </form>
+                <Form id='food-search-form' onSubmit={(e) => this.handleSubmit(e)}>
+                    <Form.Group>
+                        <Form.Input placeholder='Enter a varietal' onChange={(e) => this.handleChange(e)} />
+                        <Form.Button>Submit</Form.Button>
+                    </Form.Group>
+                </Form>
             </div>
         );
     }

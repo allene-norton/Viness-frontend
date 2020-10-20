@@ -360,3 +360,7 @@ button:focus {
 #pair-search-form.ui.form {
   padding-left: 425px;
 }
+
+#food-search-form {
+  padding-left: 425px;
+}
