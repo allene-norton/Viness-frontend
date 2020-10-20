@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card, Image } from 'semantic-ui-react'
 
 class Recipe extends Component {
 
@@ -6,12 +7,19 @@ class Recipe extends Component {
         console.log(this.props.recipe)
         let recipe = this.props.recipe
         return (
-                <div className="recipe">
-                   <a href={recipe.link} target='_blank' rel="noopener noreferrer"><h3>{recipe.name}</h3></a>
-                   <img src={recipe.image} alt={recipe.name} />
-                </div>
+            <div className="recipe">
+                <Card centered href={recipe.link}>
+                    <Image src={recipe.image} wrapped ui={false} />
+                    <Card.Content>
+                        <Card.Header>{recipe.name}</Card.Header>
+                    </Card.Content>
+                </Card>
+                {/* <a href={recipe.link} target='_blank' rel="noopener noreferrer"><h3>{recipe.name}</h3></a>
+                   <img src={recipe.image} alt={recipe.name} /> */}
+            </div>
         );
     }
 }
 
 export default Recipe;
+

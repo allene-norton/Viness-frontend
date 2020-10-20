@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Recipe from './Recipe'
+import { Card } from 'semantic-ui-react'
+
 class FoodResults extends Component {
 
     renderRecipes = () => {
@@ -11,8 +13,10 @@ class FoodResults extends Component {
         return (
             <div className="food-results">
                 <div className="paired-foods">
+                    <Card.Group>
                     {console.log(recipes)}
                     {this.renderRecipes()}
+                    </Card.Group>
                 </div>
             </div>
         );

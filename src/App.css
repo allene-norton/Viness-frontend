@@ -332,9 +332,9 @@ button:focus {
 }
 
 .ui.card>.image>img, .ui.cards>.card>.image>img {
-  width: 65% !important;
-  /* height: 200px !important; */
-  padding-left: 100px;
+  width: 290px !important;
+  height: 192px !important;
+  /* padding-left: 80px; */
   /* height: 145px !important; */
 }
 
@@ -343,6 +343,10 @@ button:focus {
   justify-content: center;
   width: 290px;
   background-color: rgb(255, 255, 255);
+}
+
+.ui.card>.content>.header, .ui.cards>.card>.content>.header {
+  font-family: 'Josefin Sans';
 }
 
 .viness-menu {
@@ -397,4 +401,13 @@ button:focus {
 
 .recipes {
   padding-top: 30px;
+}
+
+.paired-foods {
+  padding-top: 50px;
+  padding-left: 115px;
+}
+
+.recipe {
+  padding: 10px;
 }
