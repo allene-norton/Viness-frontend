@@ -25,7 +25,6 @@ class CommentsContainer extends Component {
     render() {
         return (
             <div className='comments-container'>
-                <h3>I'm the comments container</h3>
                 <CommentsDisplay wine={this.props.wine} comments={this.state.comments} deleteComment={this.deleteComment} />
                 <CommentsForm postComment={this.props.postComment} handlePost={this.handlePost} wine={this.props.wine} />
             </div>

@@ -31,7 +31,6 @@ class WineInfo extends Component {
                 <h3>{wine.description}</h3>
                 <h3>{wine.price}</h3>
                 <h3>Rating: {this.renderRating()}</h3>
-                <h4>Comments:</h4>
                 <CommentsContainer wine={wine} postComment={this.props.postComment} />
             </div>
         );

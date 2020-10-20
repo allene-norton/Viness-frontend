@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
-import Comment from './Comment'
+import CommentJs from './Comment'
+import { Comment, Header } from 'semantic-ui-react'
+
 
 class CommentsDisplay extends Component {
     renderComments = () => {
         if (this.props.comments.length >= 1) {
-        return this.props.comments.map(comment => <Comment key={comment.id} comment={comment} deleteComment={this.props.deleteComment} />)
-        } else {return undefined}
+            console.log(this.props.comments[0].img)
+            return this.props.comments.map(comment => <CommentJs key={comment.id} comment={comment} deleteComment={this.props.deleteComment} />)
+        } else { return undefined }
     }
 
     render() {
         return (
-            <div className='comments-form'>
-                <h3>I'm the comments display</h3>
-                <ul>
-                    {this.renderComments()}
-                </ul>
+            <div className='comments-display'>
+                <Comment.Group size='medium'>
+                    <Header as='h3' dividing>
+                        Comments
+                    </Header>
+                        {this.renderComments()}
+                </Comment.Group>
             </div>
         )
     }
@@ -22,3 +27,5 @@ class CommentsDisplay extends Component {
 
 
 export default CommentsDisplay
+
+   

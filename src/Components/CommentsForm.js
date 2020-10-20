@@ -22,7 +22,6 @@ class CommentsForm extends Component {
     render() {
         return (
             <div className='comments-form'>
-                <h3>I'm the comments form</h3>
                 <form id='comment-form' onSubmit={(e) => this.handleSubmit(e)}>
                     <input onChange={(e) => this.handleChange(e)} type='text' placeholder='add a comment' />
                     <input type='submit' />

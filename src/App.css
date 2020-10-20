@@ -425,3 +425,8 @@ button:focus {
 h1, h2, h3, h4, h5 p {
   font-family: 'Josefin Sans' !important;
 }
+
+.comments-display {
+  padding-top: 50px;
+  padding-left: 250px;
+}
