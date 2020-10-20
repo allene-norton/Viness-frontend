@@ -1,4 +1,19 @@
 import React, { Component } from 'react';
+import { Form, Dropdown} from 'semantic-ui-react'
+
+const ratingOpts = [
+    { key: '1', text: '1 star', value: '0.2' },
+    { key: '2', text: '2 stars', value: '0.4' },
+    { key: '3', text: '3 stars', value: '0.6' },
+    { key: '4', text: '4 stars', value: '0.8' }
+]
+
+const priceOpts = [
+    { key: '15', text: 'under $15', value: '15' },
+    { key: '30', text: 'under $30', value: '30' },
+    { key: '60', text: 'under $60', value: '60' },
+    { key: '100', text: 'under $100', value: '100' }
+]
 
 class RecSearch extends Component {
     state = {
@@ -18,36 +33,71 @@ class RecSearch extends Component {
         console.log(e.target.value)
     }
 
-    setPrice = (e) => {
-        this.setState({ maxPrice: e.target.value })
-        console.log(e.target.value)
-    }
+    handleRating = (e, result) => {
+        const { name, value } = result;
+        this.setState({
+           [name]: value
+          });
+          console.log(this.state.minRating)
+      };
 
-    setRating = (e) => {
-        this.setState({ minRating: e.target.value })
-        console.log(e.target.value)
-    }
+      handlePrice = (e, result) => {
+        const { name, value } = result;
+        this.setState({
+           [name]: value
+          });
+          console.log(this.state.maxPrice)
+      };
+
+
+    // setPrice = (e) => {
+    //     this.setState({ maxPrice: e.target.value })
+    //     console.log(e.target.value)
+    // }
+
+    // setRating = (e) => {
+    //     this.setState({ minRating: e.target.value })
+    //     console.log(e.target.value)
+    // }
     render() {
         return (
             <div className="rec-search">
-                <form id='rec-search-form' onSubmit={(e) => this.handleSubmit(e)}>
-                    <input type='text' placeholder='Enter a varietal' onChange={(e) => this.handleChange(e)} />
-                    <select required onChange={(e) => this.setRating(e)} name="minRating" id="minRating" defaultValue="0.6">
-                        <option value="" disabled >Select minimum rating:</option>
-                        <option value="0.2">1 star</option>
-                        <option value="0.4">2 stars</option>
-                        <option value="0.6">3 stars</option>
-                        <option value="0.8">4 stars</option>
-                    </select>
-                    <select required onChange={(e) => this.setPrice(e)} name="maxPrice" id="maxPrice" defaultValue='100'>
-                        <option value="" disabled >Select price range:</option>
-                        <option value="15">under $15</option>
-                        <option value="30">under $30</option>
-                        <option value="60">under $60</option>
-                        <option value="100">under $100</option>
-                    </select>
-                    <input type="submit" />
-                </form>
+                <Form id='rec-search-form' onSubmit={(e) => this.handleSubmit(e)}>
+                    <Form.Group>
+                        <Form.Input placeholder='Enter a varietal' onChange={(e) => this.handleChange(e)} />
+                        <Form.Field
+                            placeholder="Minimum Rating"
+                            name="minRating"
+                            control={Dropdown}
+                            fluid
+                            selection
+                            onChange={this.handleRating}
+                            options={ratingOpts}
+                            value={this.state.minRating}
+                        />
+                        <Form.Field
+                            placeholder="Maximum Price"
+                            name="maxPrice"
+                            control={Dropdown}
+                            fluid
+                            selection
+                            onChange={this.handlePrice}
+                            options={priceOpts}
+                            value={this.state.maxPrice}
+                        />
+                        {/* <Form.Select
+                            onChange={(e) => this.setRating(e)}
+                            placeholder="Minimum Rating"
+                            options={ratingOpts}
+                        />
+                        <Form.Select
+                            onChange={(e) => this.setPrice(e)}
+                            placeholder="Maximum Price"
+                            options={priceOpts}
+                        /> */}
+                        <Form.Button>Submit</Form.Button>
+                    </Form.Group>
+                </Form>
             </div>
         );
     }

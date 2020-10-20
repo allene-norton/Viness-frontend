@@ -347,3 +347,12 @@ button:focus {
 .viness-menu {
   height: 100% !important;
 }
+
+.rec-search {
+  text-align: center;
+}
+
+.ui.form {
+  padding-left: 300px;
+  padding-top: 50px;
+}

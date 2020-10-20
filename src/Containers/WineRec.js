@@ -19,7 +19,7 @@ class WineRec extends Component {
     render() {
         return (
             <div className="rec-page">
-                <h2>Wine Recommendations</h2>
+                <p style={{paddingTop: '50px', fontFamily: 'Josefin Sans', fontSize: '2.5rem'}}>recommendations</p>
                 <div><RecSearch getWineRec={this.props.getWineRec} renderResultsList={this.renderResultsList} /></div>
                 {/* <Grid celled centered stackable columns={4}> */}
                 
