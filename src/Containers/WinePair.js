@@ -9,7 +9,7 @@ class WinePair extends Component {
     render() {
         return (
             <div className="rec-page">
-                <h2>Wine Pairing</h2>
+                <p style={{paddingTop: '50px', fontFamily: 'Josefin Sans', fontSize: '3rem'}}>wine pairing</p>
                 <div><PairSearch getWinePair={this.props.getWinePair} /></div>
                 <div><PairResults winePairing={this.props.winePairing} postWine={this.props.postWine} /></div>
             </div>

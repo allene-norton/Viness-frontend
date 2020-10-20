@@ -356,3 +356,7 @@ button:focus {
   padding-left: 300px;
   padding-top: 50px;
 }
+
+#pair-search-form.ui.form {
+  padding-left: 425px;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form} from 'semantic-ui-react'
 
 class PairSearch extends Component {
     state = {
@@ -18,10 +19,12 @@ class PairSearch extends Component {
     render() {
         return (
             <div className="pair-search">
-                <form id='pair-search-form' onSubmit={(e) => this.handleSubmit(e)}>
-                    <input type='text' placeholder='Enter a dish, ingredient, or cuisine type' onChange={(e) => this.handleChange(e)}/>
-                    <input type="submit" />
-                </form>
+                <Form id='pair-search-form' onSubmit={(e) => this.handleSubmit(e)}>
+                    <Form.Group>
+                    <Form.Input placeholder='Enter a dish, ingredient, or cuisine type' onChange={(e) => this.handleChange(e)}/>
+                    <Form.Button>Submit</Form.Button>
+                    </Form.Group>
+                </Form>
             </div>
         );
     }
