@@ -15,6 +15,7 @@ export default class SimpleSlider extends Component {
                 <div>
                     {/* <Grid container centered stackable columns={4} > */}
                         {/* <Item.Group> */}
+                        <p style={{ fontSize: '3rem', paddingTop:'50px'}}>saved wines:</p>
                             {renderSavedWines()}
                         {/* </Item.Group> */}
                     {/* </Grid> */}
@@ -24,7 +25,7 @@ export default class SimpleSlider extends Component {
             return (
                 <div>
                     {/* <p style={{fontSize: '3rem'}}>You don't have any saved wines.</p> */}
-                    <p style={{ fontSize: '3rem', paddingTop:'300px'}}>Get started by getting a recommendation or wine pairing!</p>
+                    <p style={{ fontSize: '3rem', paddingTop:'300px', paddingLeft: '100px'}}>Get started by getting a recommendation or wine pairing!</p>
                 </div>
             )
         }

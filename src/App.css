@@ -245,9 +245,9 @@ button:focus {
 #menuToggle
 {
   display: block;
-  position: relative;
-  top: 50px;
-  left: 50px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
   height: 100%;
   
   z-index: 1;
@@ -256,7 +256,7 @@ button:focus {
   user-select: none;
 }
 
-#menuToggle a
+/* #menuToggle a
 {
   text-decoration: none;
   color: #232323;
@@ -267,10 +267,10 @@ button:focus {
 #menuToggle a:hover
 {
   color: tomato;
-}
+} */
 
 
-#menuToggle input
+/* #menuToggle input
 {
   display: block;
   width: 40px;
@@ -281,16 +281,16 @@ button:focus {
   
   cursor: pointer;
   
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  opacity: 0; /* hide this 
+  z-index: 2; /* and place it over the hamburger 
   
   -webkit-touch-callout: none;
-}
+} */
 
 /*
  * Just a quick hamburger
  */
-#menuToggle span
+/* #menuToggle span
 {
   display: block;
   width: 33px;
@@ -302,8 +302,8 @@ button:focus {
   border-radius: 3px;
   
   z-index: 1;
-  
-  transform-origin: 4px 0px;
+} */
+  /* transform-origin: 4px 0px;
   
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
@@ -318,7 +318,7 @@ button:focus {
 #menuToggle span:nth-last-child(2)
 {
   transform-origin: 0% 100%;
-}
+} */
 
 /* 
  * Transform all the slices of hamburger
@@ -357,19 +357,19 @@ button:focus {
   position: absolute;
   width: 300px;
   height: 1080px;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px;
+  margin: 0px 0 0 -50px;
+  /* padding: 50px; */
+  padding-top: 80px;
   
   background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
   
-  transform-origin: 0% 0%;
+  /* transform-origin: 0% 0%;
   transform: translate(-100%, 0);
   
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0); */
 }
 
 #menu li
@@ -427,4 +427,8 @@ button:focus {
 .ui.tiny.image {
   width: 40px !important;
   height: 145px !important;
+}
+
+.viness-menu {
+  height: 100% !important;
 }

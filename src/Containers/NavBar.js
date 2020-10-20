@@ -7,15 +7,14 @@ export default class NavBar extends Component {
         let user = this.props.currentUser
         return (
             <div className="viness-menu">
-                <nav role="navigation">
                     <div id="menuToggle">
-
+{/* 
                         <input type="checkbox" />
 
 
                         <span></span>
                         <span></span>
-                        <span></span>
+                        <span></span> */}
 
 
                         <ul id="menu">
@@ -34,7 +33,6 @@ export default class NavBar extends Component {
                         <li name='recommendations'><Link to="/wine_pairing" >Get Wine Pairing</Link></li>
                         <li name='recommendations'><Link to="/food_pairing" >Get Food Pairing</Link></li>
                     </ul> */}
-                </nav>
             </div>
         )
     }
