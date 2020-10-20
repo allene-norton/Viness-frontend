@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Form } from 'semantic-ui-react'
+
 
 class CommentsForm extends Component {
     state = {
@@ -15,17 +17,19 @@ class CommentsForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.postComment(this.state)
-        this.props.handlePost({...this.state, username: JSON.parse(sessionStorage.getItem('user')).display_name, img: JSON.parse(sessionStorage.getItem('user')).img})
+        this.props.handlePost({...this.state, username: JSON.parse(sessionStorage.getItem('user')).display_name, img: JSON.parse(sessionStorage.getItem('user')).image})
         document.getElementById("comment-form").reset()
     }
 
     render() {
         return (
             <div className='comments-form'>
-                <form id='comment-form' onSubmit={(e) => this.handleSubmit(e)}>
-                    <input onChange={(e) => this.handleChange(e)} type='text' placeholder='add a comment' />
-                    <input type='submit' />
-                </form>
+                <Form id='comment-form' className='comment-form' onSubmit={(e) => this.handleSubmit(e)}>
+                    <Form.Group>
+                    <Form.Input onChange={(e) => this.handleChange(e)} type='text' placeholder='add a comment' />
+                    <Form.Button>Submit</Form.Button>
+                    </Form.Group>
+                </Form>
             </div>
         )
     }
