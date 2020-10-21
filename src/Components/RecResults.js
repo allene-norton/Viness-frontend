@@ -31,6 +31,13 @@ class RecResults extends Component {
         }
     }
 
+    renderPrice = () => {
+        if (this.wine.price.charAt(4) === '0') {
+            let evenPrice = this.wine.price.substr(0, this.wine.price.length - 2)
+            return evenPrice
+        } else {return this.wine.price}
+    }
+
     render() {
         // let userId = JSON.parse(sessionStorage.getItem('user')).user_id
         // console.log({...this.props.wine, user_id: userId})
@@ -43,7 +50,9 @@ class RecResults extends Component {
                         <Item.Image className='item-image' size='tiny' src={wine.imageUrl} />
                         <Item.Content>
                             <Item.Header>{wine.title}</Item.Header>
-                            <Item.Meta>Rating: {this.renderRating()}</Item.Meta>
+                            <Item.Meta>
+                                Rating: {this.renderRating()} <br /> {this.renderPrice()}
+                                </Item.Meta>
                             <Item.Description>
                                 {wine.description}
                             </Item.Description>

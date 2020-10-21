@@ -13,7 +13,7 @@ class FoodResults extends Component {
         return (
             <div className="food-results">
                 <div className="paired-foods">
-                    <Card.Group>
+                    <Card.Group itemsPerRow={3}>
                     {console.log(recipes)}
                     {this.renderRecipes()}
                     </Card.Group>
