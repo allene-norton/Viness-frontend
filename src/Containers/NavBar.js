@@ -12,9 +12,9 @@ export default class NavBar extends Component {
         let user = this.props.currentUser
         return (
             <div className="viness-menu">
-                    <div id="menuToggle">
+                    <div id="menuToggle" className='side-menu'>
                     <img src={vlogo} alt='viness-logo' style={{paddingTop: '10px'}}/>
-                        <ul id="menu">
+                        <ul id="menu" className='side-menu'>
                             <li>{user.display_name}</li>
                             <li><img src={user.image} alt={user.display_name} /></li>
                         <li name='home'><Link to="/home" ><button onClick={this.handleClick}>home</button></Link></li>
