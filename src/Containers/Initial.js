@@ -6,8 +6,6 @@ import Landing from './Landing'
 import WineRec from './WineRec'
 import WinePair from './WinePair'
 import FoodPair from './FoodPair'
-import Login from '../Components/Login'
-import Logout from '../Components/Logout'
 import WineInfo from '../Components/WineInfo';
 
 const usersAPI = 'http://localhost:3000/users'
@@ -213,8 +211,6 @@ class Initial extends Component {
             })
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data)
-                    // sessionStorage.setItem('saved', JSON.stringify(data))
                     this.setState({
                         saved: data
                     })
@@ -223,7 +219,6 @@ class Initial extends Component {
     }
 
     renderLoginOrHome = () => {
-        // console.log(API_KEY)
         if (!this.state.isLoggedIn) {
             return (
                 <div className="App">
@@ -233,12 +228,6 @@ class Initial extends Component {
                         setCurrentUser={this.setCurrentUser}
                         users={this.state.users}
                         />
-                        {/* <Login
-                            postUser={this.postUser}
-                            setCurrentUser={this.setCurrentUser}
-                            users={this.state.users}
-                        /> */}
-                        {/* <Logout setLogout={this.setLogout} /> */}
                     </Router>
                 </div>
             )

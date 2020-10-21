@@ -13,7 +13,7 @@ export default class NavBar extends Component {
         return (
             <div className="viness-menu">
                     <div id="menuToggle">
-                    <img src={vlogo} width='165px'/>
+                    <img src={vlogo} width='165px' alt='viness-logo'/>
                         <ul id="menu">
                             <li>{user.display_name}</li>
                             <li><img src={user.image} alt={user.display_name} /></li>
