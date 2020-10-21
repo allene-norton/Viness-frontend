@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Logout from '../Components/Logout'
-import vlogo from '../images/vlogo_small_1.png'
+import vlogo from '../images/vlogo_s_100.png'
 
 
 export default class NavBar extends Component {
@@ -13,7 +13,7 @@ export default class NavBar extends Component {
         return (
             <div className="viness-menu">
                     <div id="menuToggle">
-                    <img src={vlogo} width='165px' alt='viness-logo'/>
+                    <img src={vlogo} height='65px' alt='viness-logo'/>
                         <ul id="menu">
                             <li>{user.display_name}</li>
                             <li><img src={user.image} alt={user.display_name} /></li>
