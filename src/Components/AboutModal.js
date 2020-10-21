@@ -21,7 +21,7 @@ const Modal = props => {
                     className="close"
                     onClick={closeModal}>&otimes;
              </span>
-                <img src={vlogo} alt='viness logo' style={{ height: '65px'}} /> <br />
+                <img src={vlogo} alt='viness logo' style={{ height: '65px'}} /> <br /><br /><br />
                 <p>Viness provides bottle recommendations and wine pairings for your chosen ingredients,
                 as well as recipes for dishes that pair with your favorite varietals. </p> <p>
                 Save bottles to your profile, and see reviews and comments from other Viness users. </p>

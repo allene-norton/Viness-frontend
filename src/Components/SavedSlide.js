@@ -4,11 +4,6 @@ import { Item, Icon } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
 
-
-// import ListGroup from 'react-bootstrap/ListGroup';
-// import ListGroupItem from 'react-bootstrap/ListGroupItem';
-// import 'bootstrap/dist/css/bootstrap.min.css'
-
 export default class CustomSlide extends Component {
     wine = this.props.wine 
 

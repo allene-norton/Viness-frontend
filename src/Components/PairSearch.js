@@ -19,7 +19,7 @@ class PairSearch extends Component {
     render() {
         return (
             <div className="pair-search">
-                <Form id='pair-search-form' onSubmit={(e) => this.handleSubmit(e)} style={{fontFamily: 'Josefin Sans !important;'}}>
+                <Form id='pair-search-form' onSubmit={(e) => this.handleSubmit(e)} style={{fontFamily: 'Josefin Sans !important'}}>
                     <Form.Group>
                     <Form.Input style={{width: '300px', fontFamily: 'Josefin Sans !important'}} placeholder='Enter a dish, ingredient, or cuisine type' onChange={(e) => this.handleChange(e)}/>
                     <Form.Button>Submit</Form.Button>
