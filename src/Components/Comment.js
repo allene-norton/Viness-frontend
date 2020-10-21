@@ -4,9 +4,20 @@ import { Comment } from 'semantic-ui-react'
 
 function CommentJs(props) {
     let comment = props.comment
+    let currentUser = JSON.parse(sessionStorage.getItem('user'))
+
+    const renderDelete = () => {
+        if (comment.username === currentUser.display_name) {
+            
+            return <button onClick={handleDelete} >delete</button>     
+        } else {
+            return undefined
+        }
+    }
 
     const handleDelete = () => {
         props.deleteComment(props.comment.id)
+        props.getUserWines()
     }
     return (
         <div className="commentJs">
@@ -18,9 +29,9 @@ function CommentJs(props) {
                         <span>Today at 5:42PM</span>
                     </Comment.Metadata> */}
                     <Comment.Text>{comment.body}</Comment.Text>
-                    {/* <Comment.Actions>
-                        <a>Reply</a>
-                    </Comment.Actions> */}
+                    <Comment.Actions>
+                        {renderDelete()}
+                    </Comment.Actions>
                 </Comment.Content>
             </Comment>
             {/* <h4>{comment.username}</h4>

@@ -1,15 +1,34 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import { Item } from 'semantic-ui-react'
+import { Item, Icon } from 'semantic-ui-react'
 
 
 class RecResults extends Component {
+
+    wine = this.props.wine
+
 
     handleClick = () => {
         let userId = JSON.parse(sessionStorage.getItem('user')).id
         this.props.postWine({ ...this.props.wine, user_id: userId })
         alert('Your wine has been saved to your profile!')
         // return <Link to='/home' />
+    }
+
+    renderRating = () => {
+        if (this.wine.averageRating < 0.4) {
+            return <div><Icon name='star' size='small' /></div>
+        } else if (this.wine.averageRating >= 0.4 && this.wine.averageRating < 0.6) {
+            return <div><Icon name='star' size='small' /><Icon name='star' size='small' /></div>
+        } else if (this.wine.averageRating >= 0.6 && this.wine.averageRating < 0.8) {
+            return <div><Icon name='star' size='small' /><Icon name='star' size='small' /><Icon name='star' size='small' /></div>
+        } else if (this.wine.averageRating >= 0.8 && this.wine.averageRating < 1) {
+            return <div><Icon name='star' size='small' /><Icon name='star' size='small' /><Icon name='star' size='small' /><Icon name='star' size='small' /></div>
+        } else if (this.wine.averageRating >= 1) {
+            return <div><Icon name='star' size='small' /><Icon name='star' size='small' /><Icon name='star' size='small' /><Icon name='star' size='small' /><Icon name='star' size='small' /></div>
+        } else {
+            return 'currently unavailable'
+        }
     }
 
     render() {
@@ -24,7 +43,7 @@ class RecResults extends Component {
                         <Item.Image className='item-image' size='tiny' src={wine.imageUrl} />
                         <Item.Content>
                             <Item.Header>{wine.title}</Item.Header>
-                            <Item.Meta>Description</Item.Meta>
+                            <Item.Meta>Rating: {this.renderRating()}</Item.Meta>
                             <Item.Description>
                                 {wine.description}
                             </Item.Description>

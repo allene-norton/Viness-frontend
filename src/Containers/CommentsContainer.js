@@ -20,12 +20,13 @@ class CommentsContainer extends Component {
                 'Content-Type': 'application/json'
             }
         }).then(this.setState((prev) => ({ comments: prev.comments.filter(comment => comment.id !== commentId) })))
+        
     }
 
     render() {
         return (
             <div className='comments-container'>
-                <CommentsDisplay wine={this.props.wine} comments={this.state.comments} deleteComment={this.deleteComment} />
+                <CommentsDisplay wine={this.props.wine} comments={this.state.comments} deleteComment={this.deleteComment} getUserWines={this.props.getUserWines}/>
                 <CommentsForm postComment={this.props.postComment} handlePost={this.handlePost} wine={this.props.wine} />
             </div>
         )

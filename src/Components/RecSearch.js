@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Form, Dropdown} from 'semantic-ui-react'
 
 const ratingOpts = [
-    { key: '1', text: '1 star', value: '0.2' },
-    { key: '2', text: '2 stars', value: '0.4' },
-    { key: '3', text: '3 stars', value: '0.6' },
-    { key: '4', text: '4 stars', value: '0.8' }
+    { key: '1', text: '1+ stars', value: '0.2' },
+    { key: '2', text: '2+ stars', value: '0.4' },
+    { key: '3', text: '3+ stars', value: '0.6' },
+    { key: '4', text: '4+ stars', value: '0.8' }
 ]
 
 const priceOpts = [

@@ -244,7 +244,7 @@ class Initial extends Component {
             )
         } else if (this.state.isLoggedIn) {
             return <Router>
-                <NavBar currentUser={this.state.currentUser}/>
+                <NavBar currentUser={this.state.currentUser} getUserWines={this.getUserWines}/>
                 <Redirect to='/home' />
                 <Switch>
                     <Route exact path="/recommendations">
@@ -284,6 +284,7 @@ class Initial extends Component {
                             currentUser={this.state.currentUser}
                             postComment={this.postComment}
                             wine={this.state.wineInfo}
+                            getUserWines={this.getUserWines}
                         />
                     </Route>
                 </Switch>
