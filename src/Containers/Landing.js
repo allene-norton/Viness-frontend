@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AboutModal from '../Components/AboutModal'
 import vid from '../images/wine_seq2.mp4'
-import vlogo from '../images/vlogo_new.png'
+import vlogo from '../images/vlogo_new_t.png'
 import Login from '../Components/Login'
 
 class Landing extends Component {
