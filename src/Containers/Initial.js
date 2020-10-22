@@ -14,7 +14,7 @@ const userWinesAPI = 'https://vinessapi.herokuapp.com/users_wines'
 
 const postWines = 'https://vinessapi.herokuapp.com/wines'
 
-const API_KEY = process.env.REACT_APP_SPOON_API_KEY;
+const REACT_APP_SPOON_API_KEY = process.env.REACT_APP_SPOON_API_KEY;
 
 const myHeaders = { "Content-Type": "application/json", "Accepts": "application/json" }
 
@@ -88,7 +88,7 @@ class Initial extends Component {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-                "x-rapidapi-key": API_KEY
+                "x-rapidapi-key": REACT_APP_SPOON_API_KEY
             }
         })
             .then(res => res.json())
@@ -103,7 +103,7 @@ class Initial extends Component {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-                "x-rapidapi-key": API_KEY
+                "x-rapidapi-key": REACT_APP_SPOON_API_KEY
             }
         })
             .then(res => res.json())
@@ -118,7 +118,7 @@ class Initial extends Component {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-                "x-rapidapi-key": API_KEY
+                "x-rapidapi-key": REACT_APP_SPOON_API_KEY
             }
         })
             .then(res => res.json())
@@ -139,7 +139,7 @@ class Initial extends Component {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-                "x-rapidapi-key": API_KEY
+                "x-rapidapi-key": REACT_APP_SPOON_API_KEY
             }
         })
             .then(res => res.json())
