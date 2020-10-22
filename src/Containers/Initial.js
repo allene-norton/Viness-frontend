@@ -64,10 +64,7 @@ class Initial extends Component {
             },
             body: JSON.stringify({ id_token: token })
         })
-            .then(res => {
-                console.log(res)
-                console.log(res.json())
-                res.json()})
+            .then(res => res.json())
             .then(data => {
                 this.setCurrentUser(data)
                 this.getUserWines()
