@@ -9,7 +9,7 @@ function CommentJs(props) {
     const renderDelete = () => {
         if (comment.username === currentUser.display_name) {
             
-            return <button onClick={handleDelete} >delete</button>     
+            return <button onClick={handleDelete} >remove</button>     
         } else {
             return undefined
         }
@@ -28,10 +28,11 @@ function CommentJs(props) {
                     {/* <Comment.Metadata>
                         <span>Today at 5:42PM</span>
                     </Comment.Metadata> */}
-                    <Comment.Text>{comment.body}</Comment.Text>
-                    <Comment.Actions>
+                    <Comment.Text>{comment.body}
+                    <Comment.Actions className='del-comment'>
                         {renderDelete()}
                     </Comment.Actions>
+                    </Comment.Text>
                 </Comment.Content>
             </Comment>
             {/* <h4>{comment.username}</h4>

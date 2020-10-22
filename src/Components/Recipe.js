@@ -8,7 +8,7 @@ class Recipe extends Component {
         let recipe = this.props.recipe
         return (
             <div className="recipe">
-                <Card centered href={recipe.link} target='_blank'>
+                <Card href={recipe.link} target='_blank'>
                     <Image src={recipe.image} wrapped ui={false} />
                     <Card.Content>
                         <Card.Header>{recipe.name}</Card.Header>

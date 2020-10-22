@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: 'Alte-Haas-Grotesk';
   src:url('./fonts/Alte-Haas-Grotesk.ttf.woff') format('woff'),
       url('./fonts/Alte-Haas-Grotesk.ttf.svg#Alte-Haas-Grotesk') format('svg'),
@@ -20,10 +20,10 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap'); */
 
 
 
@@ -156,6 +156,18 @@ button:focus {
   -moz-appearance: none;
 }
 
+.item button:hover,
+button:focus {
+  transform: scale(1.2);
+  color: rgb(68, 0, 0) !important;
+}
+
+.item button:active {
+  transform: scale(1.2);
+  color: rgb(68, 0, 0) !important;
+} 
+
+
 .commentJs button {
   display: inline-block;
   border: none;
@@ -174,6 +186,18 @@ button:focus {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
+.commentJs button:hover,
+button:focus {
+  transform: scale(1.2);
+  color: rgb(68, 0, 0) !important;
+}
+
+.commentJs button:active {
+  transform: scale(1.2);
+  color: rgb(68, 0, 0) !important;
+} 
+
 
 .card button:hover,
 button:focus {
@@ -241,7 +265,7 @@ button:focus {
   color: #252525;
   outline: none;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   cursor: pointer;
   text-align: center;
   transition: background 250ms ease-in-out, 
@@ -252,13 +276,13 @@ button:focus {
 
 #menuToggle button:hover,
 button:focus {
-  transform: scale(1.1);
-  color: rgb(122, 0, 0) !important;
+  transform: scale(1.2);
+  color: rgb(68, 0, 0) !important;
 }
 
 #menuToggle button:active {
   transform: scale(1.2);
-  color: rgb(122, 0, 0) !important;
+  color: rgb(68, 0, 0) !important;
 } 
 
 .viness-menu {
@@ -410,6 +434,19 @@ button:focus {
   font-family: 'Josefin Sans';
 }
 
+.ui.three.cards {
+  width: 1065px;
+  display: flex;
+}
+
+.ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {
+  height: 23px !important;
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-top: 0em;
+  line-height: 1.1em !important;
+}
+
 .viness-menu {
   height: 100% !important;
 }
@@ -484,6 +521,7 @@ button:focus {
 
 .recipes {
   padding-top: 30px;
+  width: 1155px;
 }
 
 .paired-foods {
@@ -493,6 +531,7 @@ button:focus {
 
 .recipe {
   padding: 10px;
+  /* width: 290px; */
 }
 
 .wine-info {
@@ -515,4 +554,17 @@ h1, h2, h3, h4, h5 p {
 
 .ui.comments {
   text-align: left;
+}
+
+.commentJs button {
+  display: inline-flexbox;
+  /* padding-left: 550px; */
+}
+
+.del-comment {
+  float: right;
+}
+
+.ui.card>.content, .ui.cards>.card>.content {
+  height: 72px;
 }

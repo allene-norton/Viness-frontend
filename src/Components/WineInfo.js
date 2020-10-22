@@ -28,7 +28,6 @@ class WineInfo extends Component {
     }
 
     render() {
-        
         console.log(this.wine.title)
         return (
             <div className="wine-info" id='wine-info'>
@@ -44,3 +43,5 @@ class WineInfo extends Component {
 }
 
 export default WineInfo;
+
+
