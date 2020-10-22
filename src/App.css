@@ -133,9 +133,9 @@ button:focus {
   transform: scale(0.99);
 }
 
-.landing button:active {
+/* .landing button:active {
   transform: scale(0.99);
-}
+} */
 
 .item button {
   display: inline-block;
@@ -162,10 +162,10 @@ button:focus {
   color: rgb(68, 0, 0) !important;
 }
 
-.item button:active {
+/* .item button:active {
   transform: scale(1.2);
   color: rgb(68, 0, 0) !important;
-} 
+}  */
 
 
 .commentJs button {
@@ -193,20 +193,20 @@ button:focus {
   color: rgb(68, 0, 0) !important;
 }
 
-.commentJs button:active {
+/* .commentJs button:active {
   transform: scale(1.2);
   color: rgb(68, 0, 0) !important;
-} 
+}  */
 
 
 .card button:hover,
 button:focus {
   transform: scale(0.99);
 }
-
+/* 
 .card button:active {
   transform: scale(0.99);
-}
+} */
 
 
 /* MODAL */
@@ -280,10 +280,10 @@ button:focus {
   color: rgb(68, 0, 0) !important;
 }
 
-#menuToggle button:active {
+/* #menuToggle button:active {
   transform: scale(1.2);
   color: rgb(68, 0, 0) !important;
-} 
+}  */
 
 .viness-menu {
   background-image: linear-gradient(to right, rgb(131, 10, 10) 30% , rgb(255, 255, 255));
