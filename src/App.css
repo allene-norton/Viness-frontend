@@ -262,12 +262,16 @@ button:focus {
   margin: 0;
   text-decoration: none;
   background: none;
-  color: #252525;
+  color: #000;
   outline: none;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 1.6rem;
   cursor: pointer;
   text-align: center;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(168, 168, 168);
+  border-bottom-width: 1px;
+  width: 200px;
   transition: background 250ms ease-in-out, 
               transform 150ms ease;
   -webkit-appearance: none;
@@ -277,7 +281,7 @@ button:focus {
 #menuToggle button:hover,
 button:focus {
   transform: scale(1.2);
-  color: rgb(68, 0, 0) !important;
+  /* color: rgb(41, 41, 41) !important; */
 }
 
 /* #menuToggle button:active {
@@ -290,20 +294,7 @@ button:focus {
 }
 
 #menuToggle {
-  background: linear-gradient(to right, 
-  hsl(0, 100%, 19%) 0%,
-  hsla(0, 100%, 19%, 0.738) 19%,
-  hsla(0, 100%, 19%, 0.541) 34%,
-  hsla(0, 100%, 19%, 0.382) 47%,
-  hsla(0, 100%, 19%, 0.278) 56.5%,
-  hsla(0, 100%, 19%, 0.194) 65%,
-  hsla(0, 100%, 19%, 0.126) 73%,
-  hsla(0, 100%, 19%, 0.075) 80.2%,
-  hsla(0, 100%, 19%, 0.042) 86.1%,
-  hsla(0, 100%, 19%, 0.021) 91%,
-  hsla(0, 100%, 19%, 0.008) 95.2%,
-  hsla(0, 100%, 19%, 0.002) 98.2%,
-  hsla(0, 100%, 19%, 0) 100%);
+  background-color: rgb(151, 0, 0);
 }
 #menu {
  background: transparent
@@ -338,6 +329,7 @@ button:focus {
   margin: 0px 0 0 -50px;
   /* padding: 50px; */
   padding-top: 80px;
+  
   /* text-align: center; */
   
   /* background: #ededed; */
@@ -357,6 +349,7 @@ button:focus {
 {
   padding: 10px 0;
   font-size: 22px;
+  
 }
 
 
@@ -364,7 +357,7 @@ button:focus {
 .item {
   padding: 40px !important;
   text-align: left !important;
-  font-size: 1.2rem !important;
+  font-size: 1.4rem !important;
 }
 
 /* .ui.centered.container.stackable.four.column.grid {
@@ -392,7 +385,7 @@ button:focus {
 
 .rec-page, .food-pair-page, .pair-page, .wine-info {
   width: 100% !important;
-  height: 800px !important;
+  height: 825px !important;
   background-color: #FFF !important;
   position: flex;
   padding-left: 260px;
@@ -458,25 +451,28 @@ button:focus {
 }
 
 .ui.form {
-  padding-left: 300px;
+  padding-left: 225px;
   padding-top: 50px;
   /* font-family: 'Josefin Sans', sans-serif !important; */
 }
 
 .ui.form .field .ui.input input, .ui.form .fields .field .ui.input input {
   font-family: 'Josefin Sans', sans-serif !important;
+  font-size: 1.2rem;
 }
 
 .ui.button, .ui.buttons .button, .ui.buttons .or {
   font-family: 'Josefin Sans', sans-serif !important;
+  font-size: 1.2rem;
 }
 
 .ui.form .fields {
   font-family: 'Josefin Sans', sans-serif !important;
+  font-size: 1.2rem;
 }
 
 #pair-search-form.ui.form {
-  padding-left: 375px;
+  padding-left: 300px;
   /* font-family: 'Josefin Sans', sans-serif !important; */
 }
 
@@ -485,11 +481,11 @@ button:focus {
 } */
 
 #food-search-form {
-  padding-left: 425px;
+  padding-left: 350px;
 }
 
 #comment-form {
-  padding-left: 425px;
+  padding-left: 375px;
 }
 
 .pair-results {
