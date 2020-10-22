@@ -8,11 +8,11 @@ import WinePair from './WinePair'
 import FoodPair from './FoodPair'
 import WineInfo from '../Components/WineInfo';
 
-const usersAPI = 'http://localhost:3000/users'
-const commentsAPI = 'http://localhost:3000/comments'
-const userWinesAPI = 'http://localhost:3000/users_wines'
+const usersAPI = 'https://vinessapi.herokuapp.com/users'
+const commentsAPI = 'https://vinessapi.herokuapp.com/comments'
+const userWinesAPI = 'https://vinessapi.herokuapp.com/users_wines'
 
-const postWines = 'http://localhost:3000/wines'
+const postWines = 'https://vinessapi.herokuapp.com/wines'
 
 const API_KEY = process.env.REACT_APP_SPOON_API_KEY;
 
@@ -204,7 +204,7 @@ class Initial extends Component {
 
     getUserWines = () => {
         if (this.state.currentUser !== null) {
-            return fetch('http://localhost:3000/saved', {
+            return fetch('https://vinessapi.herokuapp.com/saved', {
                 method: 'POST',
                 headers: myHeaders,
                 body: JSON.stringify({ user_id: this.state.currentUser.id })
