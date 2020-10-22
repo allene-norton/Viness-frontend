@@ -8,7 +8,7 @@ class FoodPair extends Component {
   foodTxt = this.props.foodPairing.text
 
   renderFoods = (foods) => {
-    if (Object.keys(this.props.foodPairing).includes('status')) { return <p>{this.props.foodPairing.message}</p> }
+    if (Object.keys(this.props.foodPairing).includes('status')) { return <p style={{fontSize: '1.5rem'}}>{this.props.foodPairing.message}</p> }
     else if (Object.keys(this.props.foodPairing).includes('pairings')) { return this.props.pairedRecipes.map(recipes => <FoodResults key={recipes[0].name} recipes={recipes}  />) }
     else { return undefined }
   }

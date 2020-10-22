@@ -390,7 +390,7 @@ button:focus {
   overflow-y: scroll;
 }
 
-.rec-page, .food-pair-page, .wine-info {
+.rec-page, .food-pair-page, .pair-page, .wine-info {
   width: 100% !important;
   height: 800px !important;
   background-color: #FFF !important;
@@ -398,9 +398,11 @@ button:focus {
   padding-left: 260px;
   padding-right: 20px;
   padding-bottom: 30px !important;
+  text-align: center !important;
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
 
 .saved-wine {
   float: left;
@@ -504,6 +506,11 @@ button:focus {
   font-size: 2rem;
   padding-right: 100px;
   display: inline-block;
+}
+
+.pair-results p {
+  font-size: 1.5rem;
+  padding-left: -100px !important;
 }
 
 .paired-text, .paired-bottle {
