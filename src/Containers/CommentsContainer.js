@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CommentsDisplay from '../Components/CommentsDisplay'
 import CommentsForm from '../Components/CommentsForm'
 
-const commentsAPI = 'http://localhost:3000/comments'
+const commentsAPI = 'https://vinessapi.herokuapp.com/comments'
 
 class CommentsContainer extends Component {
     state = {
