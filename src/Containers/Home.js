@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Container } from 'semantic-ui-react'
 import SavedContainer from './SavedContainer'
 class Home extends Component {
 
@@ -7,12 +8,14 @@ class Home extends Component {
     return (
       <div className="home">
         <div className='saved'>
-          <SavedContainer
-            postComment={this.props.postComment} 
-            saved={this.props.saved} 
-            deleteWine={this.props.deleteWine}
-            setWineInfo={this.props.setWineInfo} 
+          <Container fluid >
+            <SavedContainer
+              postComment={this.props.postComment}
+              saved={this.props.saved}
+              deleteWine={this.props.deleteWine}
+              setWineInfo={this.props.setWineInfo}
             />
+          </Container>
         </div>
       </div>
     );

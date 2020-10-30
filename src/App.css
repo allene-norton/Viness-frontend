@@ -451,8 +451,8 @@ button:focus {
 }
 
 .ui.form {
-  padding-left: 275px;
-  padding-top: 50px;
+  /* padding-left: 275px;
+  padding-top: 50px; */
   /* font-family: 'Josefin Sans', sans-serif !important; */
 }
 
@@ -524,7 +524,7 @@ button:focus {
 
 .recipes {
   padding-top: 30px;
-  width: 1155px;
+  /* width: 1155px; */
 }
 
 .paired-foods {

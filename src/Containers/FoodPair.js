@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import FoodSearch from '../Components/FoodSearch'
 import FoodResults from '../Components/FoodResults'
+import { Container } from 'semantic-ui-react'
 
 class FoodPair extends Component {
 
@@ -127,7 +128,7 @@ class FoodPair extends Component {
     if (Object.keys(this.props.foodPairing).includes('status')) { return <p style={{ fontSize: '1.5rem' }}>{this.props.foodPairing.message}</p> }
     else if (Object.keys(this.props.foodPairing).includes('pairings')) {
       if (this.props.pairedRecipes.length <= 0) { return <p style={{ fontSize: '1.5rem' }}>Sorry, we couldn't find a match. Please try entering another varietal.</p> }
-      else if (this.checkIfWines()) { 
+      else if (this.checkIfWines()) {
         return <p>To get a meal pairing, try entering a varietal. If you're looking for a wine to pair with a dish or ingredient, select 'wine pairing' from the menu.</p>
       }
       else {
@@ -147,10 +148,12 @@ class FoodPair extends Component {
     this.checkIfWines()
     return (
       <div className="food-pair-page">
-        <p style={{ paddingTop: '50px', fontFamily: 'Josefin Sans', fontSize: '3rem' }}>meal pairing</p>
-        <div><FoodSearch getFoodPair={this.props.getFoodPair} clearRecipes={this.props.clearRecipes} /></div>
-        <div className='food-pair-text'>{this.renderText(this.props.foodPairing.text)}</div>
-        <div className='recipes'>{this.renderFoods(this.props.foodPairing.pairings)}</div>
+        <Container>
+          <p style={{ paddingTop: '50px', fontFamily: 'Josefin Sans', fontSize: '3rem' }}>meal pairing</p>
+          <div><FoodSearch getFoodPair={this.props.getFoodPair} clearRecipes={this.props.clearRecipes} /></div>
+          <div className='food-pair-text'>{this.renderText(this.props.foodPairing.text)}</div>
+          <div className='recipes'>{this.renderFoods(this.props.foodPairing.pairings)}</div>
+        </Container>
       </div>
     );
   }
