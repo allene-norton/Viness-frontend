@@ -397,9 +397,9 @@ button:focus {
 }
 
 
-.saved-wine {
+/* .saved-wine {
   float: left;
-}
+} */
 
 .ui.items>.item>.content>.header {
   font-family: 'Josefin Sans', sans-serif !important;
@@ -451,7 +451,7 @@ button:focus {
 }
 
 .ui.form {
-  padding-left: 225px;
+  padding-left: 275px;
   padding-top: 50px;
   /* font-family: 'Josefin Sans', sans-serif !important; */
 }
@@ -472,7 +472,7 @@ button:focus {
 }
 
 #pair-search-form.ui.form {
-  padding-left: 300px;
+  padding-left: 350px;
   /* font-family: 'Josefin Sans', sans-serif !important; */
 }
 
@@ -481,7 +481,7 @@ button:focus {
 } */
 
 #food-search-form {
-  padding-left: 350px;
+  padding-left: 400px;
 }
 
 #comment-form {
