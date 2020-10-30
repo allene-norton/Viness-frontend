@@ -25,8 +25,8 @@ const Modal = props => {
                 <p>Viness provides bottle recommendations and wine pairings for your chosen ingredients,
                 as well as recipes for dishes that pair with your favorite varietals. </p> <p>
                 Save bottles to your profile, and see reviews and comments from other Viness users. </p>
-                 <br />
-                 <p style={{fontSize: 'small'}}>A. Norton 2020</p>
+                 {/* <br />
+                 <p style={{fontSize: 'small'}}>A. Norton 2020</p> */}
             </div>
         </div>
     );
