@@ -37,7 +37,7 @@
 body {
   font-family: 'Josefin Sans', sans-serif !important;
   background: #fff;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .landing {
