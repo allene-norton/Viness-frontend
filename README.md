@@ -99,7 +99,7 @@ Functionality for saving recipes coming soon!
 
 #### Signing Out
 
-To sign out, just click 'sign out' from the sidebar. You will be alerted that your logou was successful and redirected to the landing page.
+To sign out, just click 'sign out' from the sidebar. You will be alerted that your logout was successful and redirected to the landing page.
 
 ### Credits
 
