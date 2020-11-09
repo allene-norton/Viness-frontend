@@ -1,5 +1,7 @@
 # Welcome to Viness
 
+![Alt text](viness_landing.png "Landing")
+
 ![Demo Gif](https://github.com/allene-norton/viness-frontend/blob/main/vinessdemogif.gif?raw=true)
 
 A wine pairing web application that allows users to get recommended bottles, pair wines with food, and get recommended recipes for your favorite varietals. Once a user saves a wine to their profile, they can view more information and comments about the wine, as well as add their own. Users can sign in with their Google account, making sign-in simple.
