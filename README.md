@@ -4,7 +4,9 @@ A wine pairing web application that allows users to get recommended bottles, pai
 
 ### Demo
 
-[Live Demo](https://www.viness.online)
+[Click here to open live demo](https://www.viness.online)
+
+
 
 ![Demo Gif](https://github.com/allene-norton/viness-frontend/blob/main/vinessdemogif.gif?raw=true)
 
